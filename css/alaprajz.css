@@ -88,9 +88,20 @@
       height: 100%;
       display: block;
     }
-  /* Körvonalak fixen láthatók */
-  .apt-outlines { pointer-events: none; }
-  /* Lakás-zónák: alapból láthatatlan kitöltés, hoverre/fókuszra arany highlight */
+  /* Körvonalak fixen láthatók — saját kompozit-rétegben, hogy a lakás-zónák
+     hover-animációja NE rajzolja újra (vibrálás-mentes) */
+  .apt-outlines {
+      pointer-events: none;
+      opacity: 1 !important;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+  .apt-outlines * {
+      transition: none !important;
+      pointer-events: none;
+    }
+  /* Lakás-zónák: alapból láthatatlan kitöltés, hoverre/fókuszra arany highlight.
+     A highlight saját rétegben, hogy a repaint a körvonalakat ne érintse. */
   .apt-zone {
       cursor: pointer;
       outline: none;
@@ -98,6 +109,7 @@
   .apt-zone > * {
       opacity: 0;
       transition: opacity .2s ease;
+      will-change: opacity;
     }
   .apt-zone:hover > *,
   .apt-zone:focus-visible > * { opacity: .85; }
