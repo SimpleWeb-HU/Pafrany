@@ -18,7 +18,7 @@
       --border: rgba(168,144,90,0.22); /* bronz border */
 
       /* ── Fonts ── */
-      --font-display: 'Cormorant Garamond', serif;
+      --font-display: 'Jost', sans-serif;
       --font-body: 'Jost', sans-serif;
 
       /* ── Type scale (Bootstrap 5 base = 1rem / 16px) ──
@@ -81,7 +81,7 @@
   .section-title {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 300;
+      font-weight: 200;
       line-height: var(--lh-tight);
       color: var(--cream);
     }
@@ -123,29 +123,26 @@
       background: rgba(30,32,34,.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      height: 68px;
+      height: 54px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
     }
   .nav-logo {
-      font-family: var(--font-display);
-      font-size: var(--fs-xl);
-      font-weight: 400;
-      letter-spacing: .08em;
-      color: var(--cream);
-      text-decoration: none;
-      line-height: 1;
       flex-shrink: 0;
       display: flex;
       align-items: center;
-      gap: .35em;
+      text-decoration: none;
       cursor: pointer;
+      line-height: 1;
     }
-  .nav-logo span { color: var(--gold); }
-  .nav-logo:hover { text-decoration: none; color: var(--cream); }
-  .nav-logo:hover span { color: var(--gold); }
+  .nav-logo-img {
+      display: block;
+      height: 34px;
+      width: auto;
+    }
+  .nav-logo:hover { opacity: .85; }
   .nav-links {
       display: flex;
       align-items: center;
@@ -165,7 +162,7 @@
       color: var(--stone-light);
       text-decoration: none;
       transition: color .2s;
-      line-height: 68px;
+      line-height: 54px;
       display: block;
     }
   .nav-links a:hover { color: var(--gold); }
@@ -203,7 +200,7 @@
       z-index: 998;
       background: var(--dark);
       flex-direction: column;
-      padding-top: 68px;           /* navbar height */
+      padding-top: 54px;           /* navbar height */
     }
   #mobile-menu.is-open { display: flex; }
   .mobile-menu-inner {
@@ -230,7 +227,7 @@
       padding: var(--space-5) 0;
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 6vw, 2rem);
-      font-weight: 300;
+      font-weight: 200;
       color: var(--cream);
       text-decoration: none;
       letter-spacing: .04em;
@@ -270,7 +267,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 68px;
+      padding-top: 54px;
       padding-bottom: 5rem;
       overflow: hidden;
     }
@@ -303,7 +300,7 @@
   .hero-title {
       font-family: var(--font-display);
       font-size: clamp(3rem, 8vw, 6.5rem);
-      font-weight: 300;
+      font-weight: 200;
       line-height: var(--lh-tight);
       color: var(--cream);
       margin-bottom: var(--space-6);   /* 24px */
@@ -560,7 +557,7 @@
   .loc-card h5 {
       font-family: var(--font-display);
       font-size: var(--fs-lg);           /* 20px — fixed, no clamp */
-      font-weight: 300;
+      font-weight: 200;
       line-height: var(--lh-tight);
       color: var(--cream);
       margin-bottom: var(--space-3);     /* 12px */
@@ -578,7 +575,7 @@
   .dev-stat .num {
       font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 2.5rem);
-      font-weight: 300;
+      font-weight: 200;
       color: var(--cream);
       line-height: 1;
     }
@@ -679,7 +676,7 @@
   footer .footer-logo {
       font-family: var(--font-display);
       font-size: var(--fs-xl);
-      font-weight: 300;
+      font-weight: 200;
       color: var(--cream);
       margin-bottom: var(--space-4);     /* 16px */
     }
@@ -720,14 +717,14 @@
   /* ── RESPONSIVE — mobile-first, min 375px ── */
 
   @media (max-width: 575px) {
-    #navbar { padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); height: 60px; }
+    #navbar { padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); height: 54px; }
     section { padding: 3rem 0; }
-    #hero { min-height: 100svh; padding-top: 60px; }
+    #hero { min-height: 100svh; padding-top: 54px; }
     .hero-title    { font-size: clamp(1.875rem, 11vw, 2.5rem); line-height: 1.1; margin-bottom: var(--space-5); }
     .hero-eyebrow  { font-size: var(--fs-xs); margin-bottom: var(--space-4); }
     .hero-subtitle { font-size: var(--fs-sm); max-width: 100%; margin-bottom: var(--space-8); }
     .section-title { font-size: clamp(1.75rem, 8vw, 2.5rem); }
-    .nav-logo      { font-size: 1rem; letter-spacing: .04em; }
+    .nav-logo-img { height: 30px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .nav-lang  { font-size: 11px; }
@@ -744,9 +741,9 @@
   }
 
   @media (min-width: 576px) and (max-width: 767px) {
-    #navbar { padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); height: 64px; }
+    #navbar { padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); height: 54px; }
     section { padding: 3.5rem 0; }
-    #hero { padding-top: 64px; }
+    #hero { padding-top: 54px; }
     .hero-title    { font-size: clamp(2.25rem, 9vw, 3.25rem); }
     .section-title { font-size: clamp(2rem, 6vw, 2.75rem); }
     .nav-links { display: none; }
@@ -757,9 +754,7 @@
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    #navbar { padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); height: 68px; gap: 1rem; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
+    #navbar { padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); height: 54px; gap: 1rem; }
     section { padding: 4rem 0; }
     .hero-title    { font-size: clamp(2.5rem, 6vw, 4rem); }
     .section-title { font-size: clamp(2rem, 4vw, 3rem); }
@@ -769,7 +764,13 @@
     .gallery-item img { height: 100% !important; }
   }
 
-  @media (min-width: 992px) {
+  /* Navbar: a hamburger menü 1199px-ig érvényes, mert a 7 menüelem +
+     logo + AJÁNLATKÉRÉS gomb csak 1200px-től fér el túlcsordulás nélkül. */
+  @media (max-width: 1199px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (min-width: 1200px) {
     .hamburger { display: none; }
     .nav-links { display: flex; }
   }
