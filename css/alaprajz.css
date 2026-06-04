@@ -179,7 +179,7 @@
   .apt-modal-title {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 400;
+      font-weight: 200;
       line-height: 1.1;
       margin: 0;
     }
@@ -394,7 +394,7 @@
   .building-label {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 300;
+      font-weight: 200;
       color: var(--gold-light);
       letter-spacing: .1em;
       line-height: 1;
@@ -477,7 +477,7 @@
   .apt-card-mobile .apt-card-id {
       font-family: var(--font-display);
       font-size: var(--fs-xl);
-      font-weight: 300;
+      font-weight: 200;
       color: var(--cream);
       margin-bottom: var(--space-2);     /* 8px */
     }
@@ -543,7 +543,7 @@
   section.light .sticky-filter { background: #E5E0D6; border-bottom-color: rgba(168,144,90,.2); }
   .sticky-filter {
       position: sticky;
-      top: 68px;
+      top: 54px;
       z-index: 100;
       background: var(--dark-mid);
       border-bottom: 1px solid var(--border);
@@ -566,7 +566,7 @@
   /* ── RESPONSIVE — alaprajz modul ── */
 
   @media (max-width: 575px) {
-    .sticky-filter { top: 60px; }
+    .sticky-filter { top: 54px; }
     .building-plan { grid-template-columns: 1fr; }
     .building-half { flex-direction: column; border-right: none; border-bottom: 1px solid var(--border); padding: var(--space-4); }
     .building-half:last-child { border-bottom: none; }
@@ -585,7 +585,7 @@
   }
 
   @media (min-width: 576px) and (max-width: 767px) {
-    .sticky-filter { top: 64px; }
+    .sticky-filter { top: 54px; }
     .building-plan { grid-template-columns: repeat(2, 1fr); }
     .building-half { border-right: 1px solid var(--border); }
     .building-half:nth-child(2n) { border-right: none; }
