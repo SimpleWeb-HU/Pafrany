@@ -146,10 +146,10 @@
       right: 0;
       transform: translateY(-50%);
   }
-  /* Mobil (<576px): a telek-stage a tartalom (fekvő kivágás) magasságához
-     igazodik, nincs fölösleges fehér sáv fölötte-alatta. A homlokzati 860/700
-     arány itt nem érvényes — a telekrajz látható kivágása 860×420 (≈2.05). */
-  @media (max-width: 575px) {
+  /* <992px: a telek-stage a tartalom (fekvő kivágás) magasságához
+     igazodik, nincs fölösleges fehér sáv fölötte-alatta. A homlokzati arány
+     itt nem érvényes — a telekrajz látható kivágása 860×420 (≈2.05). */
+  @media (max-width: 991px) {
     #panelTelekrajz .fp-stage {
         aspect-ratio: 860 / 420;
         max-height: none;
@@ -313,6 +313,9 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
+  .apt-room-table th:last-child {
+      text-align: right;          /* "Alapterület" felirat a m² oszlop fölött, jobbra */
+    }
   .apt-room-table td {
       font-weight: 300;            /* body súly — helyiségnevek */
       color: var(--dark);
@@ -341,6 +344,13 @@
       font-weight: 400;            /* adat-érték — dark, olvasható */
       color: var(--dark);
     }
+  /* "A lakás" fő adatai — az ÉRTÉKEK kiemelve (a mezőnevek finomak maradnak) */
+  .apt-spec-grid--primary dd {
+      font-weight: 600;
+      font-size: var(--fs-base);
+      color: var(--dark);
+      line-height: 1.25;
+    }
 
   /* ── Lábléc: fixen lent, a CTA gomb mindig látszik ── */
   .apt-modal-footer {
@@ -363,15 +373,8 @@
       white-space: nowrap;
     }
 
-  /* ── Tablet: egyenlő oszlopok ── */
-  @media (max-width: 991px) {
-    .apt-modal-body { grid-template-columns: 1fr 1fr; }
-    .apt-modal-info { padding: var(--space-6); }
-    .apt-modal-plan { padding: var(--space-4); }
-  }
-
   /* ── Mobil: egymás alatt, a törzs görget, fejléc + lábléc + CTA fixen marad ── */
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     .apt-modal { max-height: calc(100dvh - 2 * var(--space-3)); }
     .apt-modal-body {
       display: flex;
@@ -408,7 +411,7 @@
   /* Mobil: a homlokzat a tartalom magasságához igazodik (nincs fölösleges
      fehér sáv fölötte-alatta). A két oldal továbbra is croppolva: a belső
      réteg szélesebb (1135/860 ≈ 1.32×), így a középső ~860 széles rész látszik. */
-  @media (max-width: 575px) {
+  @media (max-width: 991px) {
     .fp-stage {
         height: auto;
         aspect-ratio: 860 / 420;
@@ -419,22 +422,6 @@
        az overflow:hidden levágja a kilógó bal/jobb széleket */
     .fp-inner {
         width: calc(100% * 1135 / 860);
-        height: auto;
-        aspect-ratio: 1135 / 420;
-    }
-  }
-
-  /* 576–991px: a stage a TELJES kép arányát veszi fel (1135/420), a belső
-     réteg teljes szélességű — így a teljes homlokzat/telekrajz látszik,
-     vízszintes vágás nélkül, a magasság a tartalomhoz igazodik. */
-  @media (min-width: 576px) and (max-width: 991px) {
-    .fp-stage {
-        height: auto;
-        aspect-ratio: 1135 / 420;
-        max-height: none;
-    }
-    .fp-inner {
-        width: 100%;
         height: auto;
         aspect-ratio: 1135 / 420;
     }
@@ -570,11 +557,12 @@
       text-transform: uppercase;
       color: var(--gold);
       border-bottom: 1px solid var(--border);
-      padding: var(--space-3) var(--space-4);   /* 12px 16px */
-      text-align: left; white-space: nowrap;
+      padding: var(--space-3) var(--space-2);
+      text-align: left;
+      white-space: nowrap;
     }
   .apt-table td {
-      padding: var(--space-4) var(--space-4);   /* 16px — 4px grid */
+      padding: var(--space-4) var(--space-2);
       border-bottom: 1px solid rgba(255,255,255,.04);
       color: var(--stone-light);
       white-space: nowrap;
@@ -585,6 +573,7 @@
       font-size: var(--fs-base);
       color: var(--cream);
       font-weight: 400;
+      white-space: nowrap;
     }
   .status-available {
       font-size: var(--fs-xs);
@@ -607,44 +596,115 @@
       display: inline-block;
     }
   .apt-table-wrap {
-      overflow-x: auto;
       transition: height .4s cubic-bezier(.4,0,.2,1);
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
     }
 
-  /* ── APARTMAN MOBIL KÁRTYÁK ── */
+  /* ── APARTMAN MOBIL KÁRTYÁK (újratervezett) ── */
   section.light .apt-card-mobile { background: #fff; border-color: rgba(168,144,90,.25); color: var(--dark); }
   section.light .apt-card-id { color: var(--dark); }
-  section.light .apt-card-grid span:first-child { color: var(--stone); }
-  section.light .apt-card-grid span:last-child { color: var(--dark); }
+  section.light .apt-card-type { color: var(--stone); }
+  section.light .apt-card-stats { border-top-color: rgba(168,144,90,.2); border-bottom-color: rgba(168,144,90,.2); }
+  section.light .apt-card-stat-val { color: var(--dark); }
+  section.light .apt-card-stat-lbl { color: var(--stone); }
+  section.light .apt-card-stat--hero .apt-card-stat-val { color: #8a6d2f; }
+  section.light .apt-card-stat + .apt-card-stat { border-left-color: rgba(168,144,90,.2); }
+  section.light .apt-card-phase2-note { color: var(--stone); border-top-color: rgba(168,144,90,.15); }
+
   .apt-card-mobile {
       display: none;
       border: 1px solid var(--border);
+      border-radius: 2px;
       padding: var(--space-5);
-      margin-bottom: var(--space-4);   /* 16px — consistent gap between cards */
+      margin-bottom: var(--space-4);
       background: var(--dark);
       width: 100%;
-    }
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .apt-card-row { cursor: pointer; }
+  .apt-card-row:hover,
+  .apt-card-row:focus-visible {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.18);
+      outline: none;
+  }
+
+  .apt-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+  }
   .apt-card-mobile .apt-card-id {
       font-family: var(--font-display);
       font-size: var(--fs-xl);
       font-weight: 200;
+      line-height: 1.1;
       color: var(--cream);
-      margin-bottom: var(--space-2);     /* 8px */
-    }
-  .apt-card-mobile .apt-card-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: var(--space-1) var(--space-2);  /* 4px 8px */
+      letter-spacing: .02em;
+  }
+  .apt-card-type {
+      margin-top: var(--space-1);
       font-size: var(--fs-sm);
       color: var(--stone-light);
-      margin-bottom: var(--space-4);     /* 16px */
-    }
-  .apt-card-mobile .apt-card-grid span:nth-child(odd) {
-      font-size: var(--fs-xs);
+      line-height: var(--lh-normal);
+  }
+  .apt-card-head .status-available,
+  .apt-card-head .status-sold { flex: 0 0 auto; white-space: nowrap; }
+
+  .apt-card-stats {
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: var(--space-4);
+  }
+  .apt-card-stat {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: var(--space-3) var(--space-2);
+      text-align: center;
+      min-width: 0;
+  }
+  .apt-card-stat + .apt-card-stat { border-left: 1px solid rgba(255,255,255,.08); }
+  .apt-card-stat-val {
+      font-size: var(--fs-base);
+      font-weight: 500;
+      color: var(--cream);
+      white-space: nowrap;
+  }
+  .apt-card-stat-lbl {
+      font-size: 0.625rem;
       letter-spacing: .1em;
-      color: var(--stone);
       text-transform: uppercase;
-    }
+      color: var(--stone);
+  }
+  .apt-card-stat--hero { flex: 1.3 1 0; }
+  .apt-card-stat--hero .apt-card-stat-val {
+      color: var(--gold);
+  }
+
+  .apt-card-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: var(--space-3) var(--space-4);
+  }
+
+  .apt-card--phase2 { opacity: .55; cursor: default; }
+  .apt-card--phase2:hover { transform: none; box-shadow: none; border-color: var(--border); }
+  .apt-card-phase2-note {
+      font-size: var(--fs-xs);
+      color: var(--stone);
+      line-height: var(--lh-normal);
+      padding-top: var(--space-3);
+      border-top: 1px solid rgba(255,255,255,.06);
+  }
 
   /* ── TÁBLÁZAT/KÁRTYA ÁTMENET ── */
   #aptTable tbody, #mobileCards {
@@ -716,7 +776,7 @@
 
   /* ── RESPONSIVE — alaprajz modul ── */
 
-  @media (max-width: 575px) {
+  @media (max-width: 991px) {
     .sticky-filter { top: 54px; }
     .building-plan { grid-template-columns: 1fr; }
     .building-half { flex-direction: column; border-right: none; border-bottom: 1px solid var(--border); padding: var(--space-4); }
@@ -731,39 +791,6 @@
     .floor-btn-buildings .floor-btn:nth-child(n+4) { border-top: 1px solid var(--border); }
     .floor-btn { font-size: var(--fs-xs); padding: var(--space-2) var(--space-3); border: none; }
     .apt-filter-btn { font-size: var(--fs-xs); padding: var(--space-2) var(--space-3); }
-    .apt-table-wrap .apt-table { display: none; }
-    .apt-card-mobile { display: block; }
-  }
-
-  @media (min-width: 576px) and (max-width: 767px) {
-    .sticky-filter { top: 54px; }
-    .building-plan { grid-template-columns: repeat(2, 1fr); }
-    .building-half { border-right: 1px solid var(--border); }
-    .building-half:nth-child(2n) { border-right: none; }
-    .building-half:nth-child(n+3) { border-top: 1px solid var(--border); }
-    .floor-selector { display: flex; flex-direction: column; width: 100%; border: 1px solid var(--border); gap: 0; }
-    .floor-btn-telekrajz { width: 100%; border-bottom: 1px solid var(--border); border-right: none; text-align: center; }
-    .floor-btn-buildings { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; }
-    .floor-btn-buildings .floor-btn { border-right: 1px solid var(--border); flex: unset; }
-    .floor-btn-buildings .floor-btn:nth-child(3n) { border-right: none; }
-    .floor-btn-buildings .floor-btn:nth-child(n+4) { border-top: 1px solid var(--border); }
-    .floor-btn { border: none; }
-    .apt-table-wrap .apt-table { display: none; }
-    .apt-card-mobile { display: block; }
-  }
-
-  @media (min-width: 768px) and (max-width: 991px) {
-    .building-plan { grid-template-columns: repeat(3, 1fr); }
-    .building-half { border-right: 1px solid var(--border); }
-    .building-half:nth-child(3n) { border-right: none; }
-    .building-half:nth-child(n+4) { border-top: 1px solid var(--border); }
-    .floor-selector { display: flex; flex-direction: column; width: 100%; border: 1px solid var(--border); gap: 0; }
-    .floor-btn-telekrajz { width: 100%; border-bottom: 1px solid var(--border); border-right: none; text-align: center; }
-    .floor-btn-buildings { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; }
-    .floor-btn-buildings .floor-btn { border-right: 1px solid var(--border); flex: unset; }
-    .floor-btn-buildings .floor-btn:nth-child(3n) { border-right: none; }
-    .floor-btn-buildings .floor-btn:nth-child(n+4) { border-top: 1px solid var(--border); }
-    .floor-btn { border: none; }
     .apt-table-wrap .apt-table { display: none; }
     .apt-card-mobile { display: block; }
   }
