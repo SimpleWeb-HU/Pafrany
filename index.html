@@ -78,8 +78,8 @@
     <li><a href="#alaprajzok">Alaprajzok</a></li>
     <li><a href="#lakasok">Lakások</a></li>
     <li><a href="#galeria">Galéria</a></li>
-    <li><a href="#felszereltseg">Felszereltség</a></li>
     <li><a href="#robot-szolgaltatas">Robot szolgáltatás</a></li>
+    <li><a href="#felszereltseg">Felszereltség</a></li>
     <li><a href="#elhelyezkedes">Elhelyezkedés</a></li>
     <li><a href="#kapcsolat">Kapcsolat</a></li>
   </ul>
@@ -100,8 +100,8 @@
       <li><a href="#alaprajzok"      class="mobile-nav-link">Alaprajzok</a></li>
       <li><a href="#lakasok"         class="mobile-nav-link">Lakások</a></li>
       <li><a href="#galeria"         class="mobile-nav-link">Galéria</a></li>
-      <li><a href="#felszereltseg"   class="mobile-nav-link">Felszereltség</a></li>
       <li><a href="#robot-szolgaltatas" class="mobile-nav-link">Robot szolgáltatás</a></li>
+      <li><a href="#felszereltseg"   class="mobile-nav-link">Felszereltség</a></li>
       <li><a href="#elhelyezkedes"   class="mobile-nav-link">Elhelyezkedés</a></li>
       <li><a href="#kapcsolat"       class="mobile-nav-link">Kapcsolat</a></li>
     </ul>
@@ -131,10 +131,7 @@
         <p class="hero-subtitle">Újépítésű prémium lakások az Apáthy-szikla lábánál, Budapest legexkluzívabb zöldövezeti kerületében.</p>
         <div class="d-flex gap-3 flex-wrap">
           <a href="#kapcsolat" class="btn-solid-gold">Ajánlatkérés</a>
-          <a href="#" class="btn-outline-gold">
-            <svg width="12" height="12" viewBox="0 0 12 12" style="margin-right:.5rem; vertical-align:middle;" fill="currentColor"><polygon points="2,1 10,6 2,11"/></svg>
-            Videó megtekintése
-          </a>
+          <a href="#lakasok" class="btn-outline-gold">Lakások megtekintése</a>
         </div>
       </div>
     </div>
@@ -926,437 +923,414 @@
     <div class="apt-table-wrap">
       <table class="apt-table" id="aptTable" style="table-layout:fixed; width:100%;">
         <colgroup>
-          <col style="width:9%">   <!-- Lakás -->
-          <col style="width:12%">  <!-- Épület -->
-          <col style="width:12%">  <!-- Emelet -->
-          <col style="width:16%">  <!-- Típus -->
-          <col style="width:10%">  <!-- Nettó m² -->
-          <col style="width:10%">  <!-- Terasz m² -->
-          <col style="width:12%">  <!-- Státusz -->
-          <col style="width:7%">   <!-- Fázis -->
-          <col style="width:12%">  <!-- CTA -->
+          <col style="width:12%">  <!-- Lakás -->
+          <col style="width:13%">  <!-- Emelet -->
+          <col style="width:18%">  <!-- Típus -->
+          <col style="width:11%">  <!-- Nettó m² -->
+          <col style="width:11%">  <!-- Terasz m² -->
+          <col style="width:12%">  <!-- Privát kert -->
+          <col style="width:13%">  <!-- Státusz -->
+          <col style="width:10%">  <!-- CTA -->
         </colgroup>
         <thead>
           <tr>
             <th>Lakás</th>
-            <th>Épület</th>
             <th>Emelet</th>
             <th>Típus</th>
             <th>Nettó m²</th>
             <th>Terasz m²</th>
             <th>Privát kert</th>
             <th>Státusz</th>
-            <th>Fázis</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <!-- A1 ÉPÜLET -->
-          <tr data-building="A1" data-apt="A-L01" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L01</td><td>A1 épület</td><td>Fszt.</td><td>Privát kertes lakás</td><td>113,01 m²</td><td>27,60 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A1" data-apt="A-L02" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L02</td><td>A1 épület</td><td>Fszt.</td><td>Privát kertes lakás</td><td>110,18 m²</td><td>34,06 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A1" data-apt="A-L03" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L03</td><td>A1 épület</td><td>I. emelet</td><td>Erkélyes lakás</td><td>96,23 m²</td><td>31,21 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A1" data-apt="A-L04" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L04</td><td>A1 épület</td><td>I. emelet</td><td>Erkélyes lakás</td><td>130,32 m²</td><td>59,42 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A1" data-apt="A-Penthouse" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L05</td><td>A1 épület</td><td>III. emelet</td><td>Penthouse</td><td>123,18 m²</td><td>235,56 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A1" data-apt="A-L01" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L01</td><td>Fszt.</td><td>Privát kertes lakás</td><td>113,01 m²</td><td>27,60 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A1" data-apt="A-L02" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L02</td><td>Fszt.</td><td>Privát kertes lakás</td><td>110,18 m²</td><td>34,06 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A1" data-apt="A-L03" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L03</td><td>I. emelet</td><td>Erkélyes lakás</td><td>96,23 m²</td><td>31,21 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A1" data-apt="A-L04" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L04</td><td>I. emelet</td><td>Erkélyes lakás</td><td>130,32 m²</td><td>59,42 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A1" data-apt="A-Penthouse" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A1_L05</td><td>III. emelet</td><td>Penthouse</td><td>123,18 m²</td><td>235,56 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
           <!-- A2 ÉPÜLET -->
-          <tr data-building="A2" data-apt="A-L01" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L01</td><td>A2 épület</td><td>Fszt.</td><td>Privát kertes lakás</td><td>113,01 m²</td><td>27,60 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A2" data-apt="A-L02" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L02</td><td>A2 épület</td><td>Fszt.</td><td>Privát kertes lakás</td><td>110,18 m²</td><td>34,06 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A2" data-apt="A-L03" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L03</td><td>A2 épület</td><td>I. emelet</td><td>Erkélyes lakás</td><td>96,23 m²</td><td>31,21 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A2" data-apt="A-L04" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L04</td><td>A2 épület</td><td>I. emelet</td><td>Erkélyes lakás</td><td>130,32 m²</td><td>59,42 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A2" data-apt="A-Penthouse" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L05</td><td>A2 épület</td><td>III. emelet</td><td>Penthouse</td><td>123,18 m²</td><td>235,56 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A2" data-apt="A-L01" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L01</td><td>Fszt.</td><td>Privát kertes lakás</td><td>113,01 m²</td><td>27,60 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A2" data-apt="A-L02" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L02</td><td>Fszt.</td><td>Privát kertes lakás</td><td>110,18 m²</td><td>34,06 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A2" data-apt="A-L03" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L03</td><td>I. emelet</td><td>Erkélyes lakás</td><td>96,23 m²</td><td>31,21 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A2" data-apt="A-L04" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L04</td><td>I. emelet</td><td>Erkélyes lakás</td><td>130,32 m²</td><td>59,42 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A2" data-apt="A-Penthouse" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A2_L05</td><td>III. emelet</td><td>Penthouse</td><td>123,18 m²</td><td>235,56 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
           <!-- A3 ÉPÜLET -->
-          <tr data-building="A3" data-apt="A-L01" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L01</td><td>A3 épület</td><td>Fszt.</td><td>Privát kertes lakás</td><td>113,01 m²</td><td>27,60 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A3" data-apt="A-L02" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L02</td><td>A3 épület</td><td>Fszt.</td><td>Privát kertes lakás</td><td>110,18 m²</td><td>34,06 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A3" data-apt="A-L03" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L03</td><td>A3 épület</td><td>I. emelet</td><td>Erkélyes lakás</td><td>96,23 m²</td><td>31,21 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A3" data-apt="A-L04" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L04</td><td>A3 épület</td><td>I. emelet</td><td>Erkélyes lakás</td><td>130,32 m²</td><td>59,42 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
-          <tr data-building="A3" data-apt="A-Penthouse" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L05</td><td>A3 épület</td><td>III. emelet</td><td>Penthouse</td><td>123,18 m²</td><td>235,56 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td>1</td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A3" data-apt="A-L01" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L01</td><td>Fszt.</td><td>Privát kertes lakás</td><td>113,01 m²</td><td>27,60 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A3" data-apt="A-L02" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L02</td><td>Fszt.</td><td>Privát kertes lakás</td><td>110,18 m²</td><td>34,06 m²</td><td>80–100 m²</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A3" data-apt="A-L03" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L03</td><td>I. emelet</td><td>Erkélyes lakás</td><td>96,23 m²</td><td>31,21 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A3" data-apt="A-L04" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L04</td><td>I. emelet</td><td>Erkélyes lakás</td><td>130,32 m²</td><td>59,42 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
+          <tr data-building="A3" data-apt="A-Penthouse" class="apt-table-row" style="cursor:pointer;"><td class="apt-id">A3_L05</td><td>III. emelet</td><td>Penthouse</td><td>123,18 m²</td><td>235,56 m²</td><td>—</td><td><span class="status-available">Elérhető</span></td><td><a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-4);">Ajánlat</a></td></tr>
           <!-- B1 ÉPÜLET — 2. fázis -->
-          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–F.1</td><td style="opacity:.5;">B1 épület</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–F.2</td><td style="opacity:.5;">B1 épület</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–1.1</td><td style="opacity:.5;">B1 épület</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–1.2</td><td style="opacity:.5;">B1 épület</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–PH</td><td style="opacity:.5;">B1 épület</td><td style="opacity:.5;">III. emelet</td><td style="opacity:.5;">Penthouse</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
+          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–F.1</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–F.2</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–1.1</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–1.2</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B1" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B1–PH</td><td style="opacity:.5;">III. emelet</td><td style="opacity:.5;">Penthouse</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
           <!-- B2 ÉPÜLET — 2. fázis -->
-          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–F.1</td><td style="opacity:.5;">B2 épület</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–F.2</td><td style="opacity:.5;">B2 épület</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–1.1</td><td style="opacity:.5;">B2 épület</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–1.2</td><td style="opacity:.5;">B2 épület</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–PH</td><td style="opacity:.5;">B2 épület</td><td style="opacity:.5;">III. emelet</td><td style="opacity:.5;">Penthouse</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
+          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–F.1</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–F.2</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–1.1</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–1.2</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B2" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B2–PH</td><td style="opacity:.5;">III. emelet</td><td style="opacity:.5;">Penthouse</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
           <!-- B3 ÉPÜLET — 2. fázis -->
-          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–F.1</td><td style="opacity:.5;">B3 épület</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–F.2</td><td style="opacity:.5;">B3 épület</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–1.1</td><td style="opacity:.5;">B3 épület</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–1.2</td><td style="opacity:.5;">B3 épület</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
-          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–PH</td><td style="opacity:.5;">B3 épület</td><td style="opacity:.5;">III. emelet</td><td style="opacity:.5;">Penthouse</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td style="opacity:.5;">2</td><td></td></tr>
+          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–F.1</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–F.2</td><td style="opacity:.5;">Fszt.</td><td style="opacity:.5;">Privát kertes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–1.1</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–1.2</td><td style="opacity:.5;">I. emelet</td><td style="opacity:.5;">Erkélyes lakás</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
+          <tr data-building="B3" class="phase2-row" style="display:none;"><td class="apt-id" style="opacity:.5;">B3–PH</td><td style="opacity:.5;">III. emelet</td><td style="opacity:.5;">Penthouse</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td style="opacity:.5;">—</td><td><span class="status-sold">2. fázis</span></td><td></td></tr>
         </tbody>
       </table>
     </div>
 
     <!-- Mobil kártyák — minden lakás saját kártya -->
     <div id="mobileCards">
-      <div class="apt-card-mobile" data-building="A1">
-        <div class="apt-card-id">A-L01</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A1 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="apt-card-mobile apt-card-row" data-building="A1" data-apt="A-L01" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A1 · L01</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
           <span class="status-available">Elérhető</span>
-          <a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-5);">Ajánlatkérés</a>
         </div>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">113,01 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">27,60 m²</span><span class="apt-card-stat-lbl">Terasz</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">80–100 m²</span><span class="apt-card-stat-lbl">Privát kert</span></div>
+        </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile" data-building="A1">
-        <div class="apt-card-id">A-L02</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A1 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="apt-card-mobile apt-card-row" data-building="A1" data-apt="A-L02" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A1 · L02</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
           <span class="status-available">Elérhető</span>
-          <a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-5);">Ajánlatkérés</a>
         </div>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">110,18 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">34,06 m²</span><span class="apt-card-stat-lbl">Terasz</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">80–100 m²</span><span class="apt-card-stat-lbl">Privát kert</span></div>
+        </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile" data-building="A1">
-        <div class="apt-card-id">A-L03</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A1 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="apt-card-mobile apt-card-row" data-building="A1" data-apt="A-L03" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A1 · L03</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
           <span class="status-available">Elérhető</span>
-          <a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-5);">Ajánlatkérés</a>
         </div>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">96,23 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">31,21 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
+        </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile" data-building="A1">
-        <div class="apt-card-id">A-L04</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A1 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="apt-card-mobile apt-card-row" data-building="A1" data-apt="A-L04" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A1 · L04</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
           <span class="status-available">Elérhető</span>
-          <a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-5);">Ajánlatkérés</a>
         </div>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">130,32 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">59,42 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
+        </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile" data-building="A1">
-        <div class="apt-card-id">A-Penthouse</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A1 épület</span>
-          <span>Emelet</span><span>III. emelet</span>
-          <span>Típus</span><span>Penthouse</span>
-          <span>Fázis</span><span>1. fázis</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="apt-card-mobile apt-card-row" data-building="A1" data-apt="A-Penthouse" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A1 · L05</div>
+            <div class="apt-card-type">Penthouse &middot; III. emelet</div>
+          </div>
           <span class="status-available">Elérhető</span>
-          <a href="#kapcsolat" class="btn-outline-gold" style="padding:var(--space-1) var(--space-5);">Ajánlatkérés</a>
         </div>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">123,18 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">235,56 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
+        </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A2–F.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A2 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A2" data-apt="A-L01" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A2 · L01</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">113,01 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">27,60 m²</span><span class="apt-card-stat-lbl">Terasz</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">80–100 m²</span><span class="apt-card-stat-lbl">Privát kert</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A2–F.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A2 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A2" data-apt="A-L02" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A2 · L02</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">110,18 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">34,06 m²</span><span class="apt-card-stat-lbl">Terasz</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">80–100 m²</span><span class="apt-card-stat-lbl">Privát kert</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A2–1.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A2 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A2" data-apt="A-L03" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A2 · L03</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">96,23 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">31,21 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A2–1.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A2 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A2" data-apt="A-L04" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A2 · L04</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">130,32 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">59,42 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A2–PH</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A2 épület</span>
-          <span>Emelet</span><span>III. emelet</span>
-          <span>Típus</span><span>Penthouse</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A2" data-apt="A-Penthouse" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A2 · L05</div>
+            <div class="apt-card-type">Penthouse &middot; III. emelet</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">123,18 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">235,56 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A3–F.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A3 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A3" data-apt="A-L01" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A3 · L01</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">113,01 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">27,60 m²</span><span class="apt-card-stat-lbl">Terasz</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">80–100 m²</span><span class="apt-card-stat-lbl">Privát kert</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A3–F.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A3 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A3" data-apt="A-L02" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A3 · L02</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">110,18 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">34,06 m²</span><span class="apt-card-stat-lbl">Terasz</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">80–100 m²</span><span class="apt-card-stat-lbl">Privát kert</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A3–1.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A3 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A3" data-apt="A-L03" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A3 · L03</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">96,23 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">31,21 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A3–1.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A3 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A3" data-apt="A-L04" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A3 · L04</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">130,32 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">59,42 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="A3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">A3–PH</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>A3 épület</span>
-          <span>Emelet</span><span>III. emelet</span>
-          <span>Típus</span><span>Penthouse</span>
-          <span>Fázis</span><span>1. fázis</span>
+      <div class="apt-card-mobile apt-card-row" data-building="A3" data-apt="A-Penthouse" role="button" tabindex="0">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">A3 · L05</div>
+            <div class="apt-card-type">Penthouse &middot; III. emelet</div>
+          </div>
+          <span class="status-available">Elérhető</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">1. fázis</span>
+        <div class="apt-card-stats">
+          <div class="apt-card-stat apt-card-stat--hero"><span class="apt-card-stat-val">123,18 m²</span><span class="apt-card-stat-lbl">Nettó alapterület</span></div><div class="apt-card-stat"><span class="apt-card-stat-val">235,56 m²</span><span class="apt-card-stat-lbl">Terasz</span></div>
         </div>
+        <a href="#kapcsolat" class="btn-solid-gold apt-card-cta">Ajánlatkérés</a>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B1" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B1–F.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B1 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B1" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B1–F.1</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B1" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B1–F.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B1 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B1" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B1–F.2</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B1" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B1–1.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B1 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B1" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B1–1.1</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B1" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B1–1.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B1 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B1" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B1–1.2</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B1" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B1–PH</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B1 épület</span>
-          <span>Emelet</span><span>III. emelet</span>
-          <span>Típus</span><span>Penthouse</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B1" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B1–PH</div>
+            <div class="apt-card-type">Penthouse &middot; III. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B2–F.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B2 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B2" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B2–F.1</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B2–F.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B2 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B2" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B2–F.2</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B2–1.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B2 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B2" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B2–1.1</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B2–1.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B2 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B2" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B2–1.2</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B2" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B2–PH</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B2 épület</span>
-          <span>Emelet</span><span>III. emelet</span>
-          <span>Típus</span><span>Penthouse</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B2" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B2–PH</div>
+            <div class="apt-card-type">Penthouse &middot; III. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B3–F.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B3 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B3" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B3–F.1</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B3–F.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B3 épület</span>
-          <span>Emelet</span><span>Földszint</span>
-          <span>Típus</span><span>Privát kertes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B3" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B3–F.2</div>
+            <div class="apt-card-type">Privát kertes lakás &middot; Fszt.</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B3–1.1</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B3 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B3" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B3–1.1</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B3–1.2</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B3 épület</span>
-          <span>Emelet</span><span>I. emelet</span>
-          <span>Típus</span><span>Erkélyes lakás</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B3" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B3–1.2</div>
+            <div class="apt-card-type">Erkélyes lakás &middot; I. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
-      <div class="apt-card-mobile phase2-card" data-building="B3" style="display:none; opacity:.5;">
-        <div class="apt-card-id">B3–PH</div>
-        <div class="apt-card-grid">
-          <span>Épület</span><span>B3 épület</span>
-          <span>Emelet</span><span>III. emelet</span>
-          <span>Típus</span><span>Penthouse</span>
-          <span>Fázis</span><span>2. fázis</span>
+      <div class="apt-card-mobile apt-card--phase2 phase2-card" data-building="B3" style="display:none;">
+        <div class="apt-card-head">
+          <div>
+            <div class="apt-card-id">B3–PH</div>
+            <div class="apt-card-type">Penthouse &middot; III. emelet</div>
+          </div>
+          <span class="status-sold">2. f&aacute;zis</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="status-sold">2. fázis</span>
-        </div>
+        <div class="apt-card-phase2-note">Hamarosan el&eacute;rhet&#337; &mdash; iratkozzon fel az &eacute;rtes&iacute;t&#337;re</div>
       </div>
     </div>
 
@@ -1439,7 +1413,7 @@
       </div>
     </div>
     <div class="row g-3">
-      <div class="col-6 col-md-4 col-lg-2">
+      <div class="col-6 col-md-4 col-xl-2">
         <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
           <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 125" fill="currentColor">
   
@@ -1461,7 +1435,7 @@
           <p style="color:var(--stone);">Levegő-víz rendszer</p>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2">
+      <div class="col-6 col-md-4 col-xl-2">
         <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
           <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg version="1.1" id="Réteg_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 81 50" xml:space="preserve" fill="currentColor">
@@ -1495,7 +1469,7 @@
           <p style="color:var(--stone);">Hűtés-fűtés egyaránt</p>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2">
+      <div class="col-6 col-md-4 col-xl-2">
         <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
           <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg version="1.1" id="Réteg_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 36 72" xml:space="preserve" fill="currentColor">
@@ -1511,7 +1485,7 @@
           <p style="color:var(--stone);">Integrált rendszer</p>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2">
+      <div class="col-6 col-md-4 col-xl-2">
         <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
           <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 110 135" fill="currentColor">
   
@@ -1521,7 +1495,7 @@
           <p style="color:var(--stone);">Természetközeli csend</p>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2">
+      <div class="col-6 col-md-4 col-xl-2">
         <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
           <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 125" fill="currentColor">
   
@@ -1533,7 +1507,7 @@
           <p style="color:var(--stone);">Beépített parkolás</p>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2">
+      <div class="col-6 col-md-4 col-xl-2">
         <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
           <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 110 125" fill="currentColor">
   
@@ -1546,6 +1520,68 @@
           <p style="color:var(--stone);">24 órás biztonság</p>
         </div>
       </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
+          <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg fill="currentColor" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300">
+  
+  <path d="M39.82,57.27c-1.96,0-3.55,1.6-3.54,3.57v178.32c0,1.96,1.58,3.56,3.54,3.57h220.35c.94,0,1.85-.38,2.52-1.05.66-.67,1.03-1.58,1.03-2.52V60.84c0-.94-.37-1.85-1.03-2.52-.67-.67-1.58-1.05-2.52-1.05H39.82ZM43.39,64.38h213.24v171.24H43.39V64.38ZM59.44,76.93h0c-1.95,0-3.53,1.59-3.54,3.54v139.07c0,1.96,1.58,3.57,3.54,3.57h82.56c.95,0,1.86-.37,2.53-1.04.67-.67,1.05-1.58,1.04-2.53V80.47c0-1.96-1.6-3.55-3.57-3.55H59.44ZM157.98,76.93h0c-1.96,0-3.56,1.58-3.57,3.54v139.07c0,.95.37,1.86,1.04,2.53.67.67,1.59,1.05,2.53,1.04h82.56c1.96,0,3.55-1.6,3.54-3.57V80.47c0-1.95-1.59-3.54-3.54-3.55h-82.56ZM63.01,84.01h75.45v132H63.01V84.01ZM161.52,84.01h75.45v131.99h-75.45V84.01ZM86.15,94.68h0c-.95,0-1.86.38-2.52,1.05l-8.03,8.02c-.67.67-1.05,1.58-1.05,2.52s.38,1.86,1.05,2.52c.66.67,1.58,1.05,2.52,1.05s1.85-.38,2.52-1.05l8.03-8.06h0c1.38-1.38,1.38-3.62,0-5-.66-.67-1.57-1.05-2.51-1.05h0ZM184.69,94.68h0c-.95,0-1.86.38-2.52,1.05l-8.06,8.02c-.67.67-1.05,1.58-1.05,2.52s.38,1.86,1.05,2.52c.67.67,1.58,1.05,2.52,1.05s1.85-.38,2.52-1.05l8.03-8.06c1.37-1.38,1.37-3.62,0-5-.66-.66-1.56-1.04-2.49-1.05h0ZM100.5,99.41h0c-.95,0-1.86.37-2.52,1.04l-17.65,17.65c-1.38,1.39-1.38,3.62,0,5.01.66.67,1.57,1.05,2.51,1.05s1.85-.38,2.52-1.05l17.66-17.65h0c1.38-1.39,1.38-3.62,0-5.01-.66-.67-1.57-1.05-2.51-1.05h0ZM199.01,99.41h0c-.93,0-1.83.38-2.49,1.04l-17.68,17.65c-1.38,1.39-1.38,3.62,0,5.01.66.67,1.57,1.05,2.51,1.05s1.85-.38,2.52-1.05l17.66-17.65c1.38-1.39,1.38-3.62,0-5.01-.67-.67-1.58-1.05-2.52-1.05h0Z"/>
+</svg></div>
+          <h6 style="color:var(--dark);">Prémium nyílászárók</h6>
+          <p style="color:var(--stone);">Hő- és hangszigetelt</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
+          <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg fill="currentColor" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300">
+  
+  <path d="M231.52,57.27H68.48c-9.65,0-17.51,7.85-17.51,17.51v150.44c0,9.65,7.85,17.51,17.51,17.51h163.05c9.65,0,17.51-7.85,17.51-17.51V74.78c0-9.65-7.85-17.51-17.51-17.51ZM243.19,225.22c0,6.44-5.23,11.67-11.67,11.67H68.48c-6.44,0-11.67-5.23-11.67-11.67V74.78c0-6.44,5.23-11.67,11.67-11.67h163.05c6.44,0,11.67,5.23,11.67,11.67v150.44Z"/>
+  <path d="M222.3,77.87H77.7c-3.38,0-6.14,2.75-6.14,6.14v69.66c0,3.38,2.75,6.14,6.14,6.14h144.6c3.38,0,6.14-2.75,6.14-6.14v-69.66c0-3.38-2.75-6.14-6.14-6.14ZM222.3,153.96H77.7c-.16,0-.3-.14-.3-.3l.3-69.96,144.9.3-.3,69.96Z"/>
+  <path d="M99.05,176.74c-1.87-.85-4-.52-5.54.83l-20.19,17.75c-1.12.98-1.75,2.39-1.75,3.88s.64,2.89,1.75,3.86l20.19,17.76c.98.86,2.17,1.3,3.39,1.3.72,0,1.45-.15,2.15-.46,1.87-.85,3.04-2.65,3.04-4.71v-35.53c0-2.03-1.16-3.84-3.03-4.69h0ZM96.26,215.48l-18.51-16.29,18.51-16.28v32.57Z"/>
+  <path d="M120.36,177.57c-1.55-1.36-3.66-1.68-5.54-.83-1.87.85-3.04,2.65-3.04,4.71v35.53c0,2.05,1.16,3.86,3.04,4.71.7.31,1.42.46,2.15.46,1.22,0,2.42-.44,3.39-1.3l20.19-17.76c1.12-.98,1.75-2.39,1.75-3.86s-.64-2.9-1.75-3.89l-20.18-17.77ZM117.62,215.48v-32.57l18.68,16.15-18.68,16.42Z"/>
+  <path d="M201.06,176.12c-12.73,0-23.08,10.35-23.08,23.08s10.35,23.08,23.08,23.08,23.08-10.35,23.08-23.08-10.35-23.08-23.08-23.08ZM201.06,216.45c-9.51,0-17.25-7.74-17.25-17.25s7.74-17.25,17.25-17.25,17.25,7.74,17.25,17.25c0,9.51-7.74,17.25-17.25,17.25Z"/>
+</svg></div>
+          <h6 style="color:var(--dark);">Autonóm gépészet</h6>
+          <p style="color:var(--stone);">Független hűtés/fűtés</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
+          <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg fill="currentColor" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300">
+  
+  <path d="M233.45,57.27H66.55c-5.25,0-9.27,4.02-9.27,9.27v166.91c0,5.25,4.02,9.27,9.27,9.27h166.91c5.25,0,9.27-4.02,9.27-9.27V66.55c0-5.25-4.02-9.27-9.27-9.27ZM236.54,233.45c0,1.85-1.24,3.09-3.09,3.09H66.55c-1.85,0-3.09-1.24-3.09-3.09V66.55c0-1.85,1.24-3.09,3.09-3.09h166.91c1.85,0,3.09,1.24,3.09,3.09v166.91ZM177.82,221.09c0,1.85-1.24,3.09-3.09,3.09h-49.45c-1.85,0-3.09-1.24-3.09-3.09s1.24-3.09,3.09-3.09h49.45c1.85,0,3.09,1.24,3.09,3.09ZM177.82,78.91c0,1.85-1.24,3.09-3.09,3.09h-49.45c-1.85,0-3.09-1.24-3.09-3.09s1.24-3.09,3.09-3.09h49.45c1.85,0,3.09,1.24,3.09,3.09ZM146.91,204.4v-108.8l-7.11,7.11c-.62.62-1.24.93-2.16.93s-1.55-.31-2.16-.93c-1.24-1.24-1.24-3.09,0-4.33l12.36-12.36c.31-.31.62-.62.93-.62.62-.31,1.55-.31,2.47,0,.31.31.62.31.93.62l12.36,12.36c1.24,1.24,1.24,3.09,0,4.33-.62.62-1.24.93-2.16.93s-1.55-.31-2.16-.93l-7.11-7.11v108.8l7.11-7.11c1.24-1.24,3.09-1.24,4.33,0s1.24,3.09,0,4.33l-12.36,12.36c-.31.31-.62.62-.93.62-.31.31-.93.31-1.24.31s-.93,0-1.24-.31-.62-.31-.93-.62l-12.36-12.36c-1.24-1.24-1.24-3.09,0-4.33s3.09-1.24,4.33,0l7.11,7.11Z"/>
+</svg></div>
+          <h6 style="color:var(--dark);">Átlag feletti belmagasság</h6>
+          <p style="color:var(--stone);">275 cm magasságú terek</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
+          <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg fill="currentColor" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300">
+  
+  <defs>
+    <style>
+      .st0 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M182.28,242.7h57.21c1.79,0,3.23-1.45,3.23-3.23V58.53c0-1.79-1.45-3.23-3.23-3.23h-57.21c-1.79,0-3.23,1.45-3.23,3.23v11.02c-7.4,4.49-11.98,12.54-11.98,21.29,0,7.63,3.47,14.72,9.27,19.39-5.79,4.67-9.27,11.76-9.27,19.39s3.47,14.72,9.27,19.39c-5.79,4.67-9.27,11.76-9.27,19.39s3.47,14.72,9.27,19.39c-5.79,4.67-9.27,11.76-9.27,19.39,0,8.75,4.58,16.8,11.98,21.29v11.02c0,1.79,1.45,3.23,3.23,3.23h0ZM210.42,236.24h25.85V61.76h-25.85v9.69c0,1.31-.78,2.43-1.89,2.94l.05-.02c-6.22,3.13-10.14,9.51-10.14,16.47s3.95,13.37,10.19,16.49c3.74,1.87-1.45,6.12-1.45,6.12,0,0,.49.09,1.28-.26l.11-.06c-6.22,3.13-10.14,9.51-10.14,16.47s3.95,13.37,10.19,16.49c3.74,1.87-1.45,6.12-1.45,6.12,0,0,.49.09,1.28-.26l.11-.06c-6.22,3.13-10.14,9.51-10.14,16.47s3.95,13.37,10.19,16.49c3.74,1.87-1.45,6.12-1.45,6.12,0,0,.49.09,1.28-.26l.11-.06c-6.22,3.13-10.14,9.51-10.14,16.47s3.93,13.35,10.16,16.48l.1.05c.4.21.69.45.9.71.5.57.82,1.32.82,2.15v9.69ZM203.96,69.55v-7.79h-18.44v9.69c0,1.31-.78,2.43-1.89,2.94l.05-.02c-6.22,3.13-10.14,9.51-10.14,16.47s3.95,13.37,10.19,16.49c3.75,1.87-1.44,6.12-1.44,6.12,0,0,.49.09,1.28-.26l.11-.06c-6.22,3.13-10.14,9.51-10.14,16.47s3.95,13.37,10.19,16.49c3.75,1.87-1.44,6.12-1.44,6.12,0,0,.49.09,1.28-.26l.11-.06c-6.22,3.13-10.14,9.51-10.14,16.47s3.95,13.37,10.19,16.49c3.75,1.87-1.44,6.12-1.44,6.12,0,0,.49.09,1.28-.26l.11-.06c-6.22,3.13-10.14,9.51-10.14,16.47s3.93,13.35,10.16,16.48l.1.05c.4.21.69.45.9.71.51.57.82,1.32.82,2.15v9.69h18.44v-7.79c-7.39-4.49-11.98-12.54-11.98-21.29,0-7.63,3.48-14.72,9.27-19.39-5.79-4.67-9.27-11.76-9.27-19.39s3.48-14.72,9.27-19.39c-5.79-4.67-9.27-11.76-9.27-19.39s3.48-14.72,9.27-19.39c-5.79-4.67-9.27-11.76-9.27-19.39,0-8.75,4.59-16.8,11.98-21.29h-.02ZM56.27,165.16c0,1.79,1.45,3.23,3.23,3.23h18.63l31.62,15.82c1,.5,2.19.44,3.15-.15.95-.59,1.53-1.63,1.53-2.75v-64.62c0-1.16-.63-2.24-1.64-2.81-1.01-.57-2.25-.56-3.25.04l-31.54,18.93h-18.5c-1.79,0-3.23,1.45-3.23,3.23v29.08h0ZM138.61,121.58c7.02,7.02,11.36,16.71,11.36,27.42s-4.28,20.24-11.2,27.26c-1.25,1.27-1.24,3.31.02,4.57,1.27,1.25,3.31,1.24,4.57-.02,8.08-8.17,13.07-19.41,13.07-31.8s-5.06-23.8-13.26-31.98c-1.26-1.26-3.31-1.26-4.57,0s-1.26,3.31,0,4.57h0ZM62.73,161.93v-22.62h16.16c.59,0,1.16-.16,1.66-.46l27.42-16.45v53.68l-27.63-13.81c-.45-.23-.95-.34-1.45-.34h-16.16ZM123.76,136.44c3.21,3.21,5.21,7.66,5.21,12.56s-1.96,9.28-5.14,12.49c-1.25,1.27-1.24,3.31.02,4.57,1.27,1.25,3.31,1.24,4.57-.02,4.33-4.38,7-10.4,7-17.04s-2.71-12.75-7.1-17.13c-1.26-1.26-3.31-1.26-4.57,0s-1.26,3.31,0,4.57h0ZM208.52,74.4c-.4.18-.86.28-1.33.28,0,0,.49.09,1.28-.26l.05-.02h0ZM183.62,74.4c-.4.18-.86.28-1.33.28,0,0,.49.09,1.28-.26l.06-.02Z"/>
+</svg></div>
+          <h6 style="color:var(--dark);">Hangszigetelés</h6>
+          <p style="color:var(--stone);">Csendes otthonok</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="amenity-card" style="border-color:rgba(184,151,90,.3); background:rgba(245,240,232,.5);">
+          <div class="amenity-icon" style="border-color:rgba(184,151,90,.3);"><svg fill="currentColor" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300">
+  
+  <path d="M208.75,108.09c-.22-.17-.43-.29-.68-.43-1.23-7.49-5.45-15.71-13.33-25.97-3.86-5.01-8.05-7.59-12.46-7.61h-.09c-1.47,0-2.94.31-4.34.89-1.84-1.16-3.97-1.85-6.29-1.85h-5.47c3.44-3.83,5.56-8.89,5.56-14.46,0-11.95-9.73-21.68-21.68-21.68s-21.68,9.73-21.68,21.68c0,5.56,2.12,10.63,5.56,14.46h-5.47c-2.32,0-4.48.7-6.29,1.85-1.39-.57-2.87-.89-4.34-.89h-.09c-4.4.05-8.6,2.6-12.46,7.61-7.88,10.24-12.09,18.48-13.33,25.97-.22.14-.46.26-.68.43-3.43,2.55-5.16,7.35-5.11,14.27.05,11.57,1.13,20.02,3.47,26.41-1.02.87-1.71,2.02-2.02,3.35-1.18,4.96-1.08,13.82,2.82,18.07,1.67,1.81,4.14,2.48,6.65,2.48s5.18-.7,6.94-1.64c3.4-1.78,3.28-4.26,3.09-5.03-.05-.7.24-3.37.43-5.16.39-3.54.6-5.78.46-7.18-.17-1.68-.82-2.94-1.62-3.86,2.07-12.48,2.22-22.75.39-31.61,3.78-3.2,7.09-6.36,9.93-9.51.09,9.08,6.24,16.72,14.6,19.09v7.15c-1.02.39-1.98.85-2.84,1.42-2.82-.34-6.98-.14-10.65,2.7-4.24,3.3-6.38,9.03-6.38,17.03,0,12.38,1.13,22.02,3.52,29.65-.14.19-.31.36-.46.57-4.29,6.89-1.62,31.71,2.94,53.58-2.96.6-5.35,1.93-7.15,4-5.18,6.02-2.75,15.47-2.44,16.53.43,1.56,1.85,2.63,3.47,2.63h23.3c.43,0,.85-.08,1.23-.22.12-.05.24-.12.36-.19.24-.12.48-.24.68-.41.12-.09.22-.24.34-.34.17-.17.34-.34.46-.56.09-.14.14-.31.22-.48s.17-.31.22-.48c.46-1.67.7-3.26.77-4.74,2.1-13.61,7.11-51.63.72-66.47,1.59-8.39,2.33-16,2.22-22.96,2.72.87,5.54,1.37,8.24,1.37s5.51-.51,8.24-1.37c-.12,6.96.63,14.6,2.22,22.96-6.38,14.81-1.37,52.86.72,66.47.09,1.5.34,3.09.77,4.74.05.17.14.34.22.48.08.17.12.34.22.48.12.22.29.39.46.56.12.12.19.24.34.34.22.17.43.29.68.41.12.08.24.14.36.19.39.14.79.22,1.23.22h23.3c1.62,0,3.04-1.08,3.47-2.63.29-1.06,2.75-10.5-2.44-16.53-1.81-2.1-4.22-3.43-7.15-4.03,4.55-21.87,7.23-46.69,2.94-53.58-.14-.24-.31-.39-.46-.57,2.38-7.64,3.52-17.3,3.52-29.65,0-8.02-2.15-13.76-6.38-17.03-3.66-2.84-7.83-3.04-10.65-2.7-.87-.57-1.84-1.06-2.84-1.42v-7.15c8.36-2.36,14.5-9.99,14.6-19.09,2.84,3.15,6.15,6.31,9.93,9.51-1.84,8.87-1.71,19.15.39,31.61-.79.91-1.42,2.16-1.62,3.86-.14,1.39.08,3.64.46,7.18.19,1.78.48,4.46.46,4.94-.22.99-.36,3.49,3.06,5.25,1.76.91,4.36,1.64,6.94,1.64s4.99-.68,6.65-2.48c3.91-4.24,4-13.13,2.82-18.07-.31-1.33-1.02-2.48-2.02-3.35,2.32-6.38,3.43-14.84,3.47-26.41.03-6.92-1.68-11.71-5.11-14.27l-.04.03ZM200.13,164.95c-.05-1.13-.22-2.67-.46-4.89-.17-1.64-.46-4.26-.46-5.42,2.41-.6,5.2-.82,6.27-.48.91,4.29.12,9.71-1.11,11.06-.68.43-2.84.19-4.24-.26h0ZM175.32,239.78c-1.18.14-5.11.79-8.57,3.32-1.67-13.9-3.04-31.54-1.59-43.03,1.04.72,2.27,1.25,3.59,1.54.77.17,1.52.24,2.29.24,3.13,0,6.07-1.37,7.92-3.8.56-.72,1.06-1.5,1.56-2.27.43,8.79-1.35,25.99-5.2,43.97v.02ZM185.7,255.86h-17.3c-.24-2.24.12-4.05,1.08-5.42,2.12-3.06,6.72-3.49,6.92-3.52,3.83-.48,6.48.09,7.88,1.71,1.54,1.78,1.67,4.89,1.42,7.23h0ZM173.2,193.7c-.68.89-1.95,1.06-2.92.87-.34-.08-1.47-.39-1.67-1.3-2.63-11.66-3.59-21.65-2.98-30.47,6.16-3.97,10.72-10.05,10.72-17.01,0-.65-.08-1.25-.14-1.85.56.19,1.08.46,1.59.85,2.36,1.84,3.59,5.73,3.59,11.32,0,24.06-4.68,33-8.19,37.63v-.04ZM131.35,193.26c-.22.91-1.33,1.23-1.67,1.3-.96.22-2.24.03-2.92-.87-3.52-4.63-8.19-13.56-8.19-37.63,0-5.59,1.25-9.51,3.59-11.32.51-.39,1.06-.65,1.59-.85-.08.6-.14,1.2-.14,1.85,0,6.96,4.55,13.06,10.72,17.01.6,8.82-.36,18.81-2.98,30.47v.04ZM131.44,255.85h-17.22c-.24-2.33-.12-5.42,1.42-7.23,1.39-1.62,4.05-2.19,8.02-1.68.05,0,4.63.46,6.77,3.49.96,1.37,1.33,3.18,1.08,5.42h-.09.03ZM119.42,195.79c.51.79,1.02,1.54,1.56,2.27,1.84,2.41,4.79,3.8,7.92,3.8.74,0,1.52-.08,2.29-.24,1.35-.29,2.55-.82,3.59-1.54,1.45,11.49.08,29.1-1.59,43.01-3.59-2.63-7.69-3.23-8.57-3.32-3.86-17.97-5.61-35.18-5.2-43.97h0ZM130.82,145.75c0-1.81.57-2.58.99-2.98,1.93-1.9,6.94-2.19,11.75-2.19,1.06,0,2.12,0,3.13.03,2.22.03,4.34.03,6.53,0,5.59-.08,12.53-.17,14.89,2.16.43.41.99,1.18.99,2.98,0,7.74-10.7,14.62-19.15,14.62s-19.15-6.89-19.15-14.62h.02ZM153.15,133.37c-2.15.03-4.22.03-6.33,0-2.82-.05-5.67-.08-8.36.12v-4.96h23.08v4.96c-2.7-.19-5.56-.14-8.36-.12h-.03ZM163.3,121.3h-26.64c-7.06,0-12.82-5.76-12.82-12.82v-23.56c0-2.5,2.05-4.55,4.55-4.55h43.18c2.5,0,4.55,2.05,4.55,4.55v23.56c0,7.06-5.76,12.82-12.82,12.82h0ZM99.81,164.95c-1.39.46-3.54.7-4.17.31-1.3-1.42-2.1-6.84-1.18-11.13,1.04-.34,3.86-.12,6.27.48,0,1.04-.29,3.75-.46,5.42-.24,2.22-.39,3.75-.46,4.89v.03ZM93.65,118.02c.82.94,1.85,1.71,3.06,2.27,1.06.48,2.15.72,3.23.79,1.28,7.27,1.11,15.78-.48,25.93-.91-.14-1.93-.22-2.94-.24-1.64-4.31-3.13-11.47-3.2-24.45,0-1.78.12-3.18.34-4.31v.02ZM100.55,113.88s-.36.08-.82-.14c-.53-.24-1.08-.79-1.08-1.33-.05-4.39,1.16-11.9,12.23-26.31,2.19-2.87,4.36-4.48,6.29-4.74-.36,1.13-.6,2.29-.6,3.54v11.97c-3.69,5.61-8.94,11.2-16.02,17.01h0ZM135.52,58.66c0-7.97,6.48-14.46,14.46-14.46s14.46,6.48,14.46,14.46-6.48,14.46-14.46,14.46-14.46-6.48-14.46-14.46ZM182.74,81.36c1.93.26,4.07,1.88,6.29,4.74,11.09,14.41,12.31,21.93,12.23,26.31,0,.53-.56,1.08-1.08,1.33-.43.19-.74.17-.82.14-7.09-5.81-12.34-11.37-16.02-17.01v-11.97c0-1.23-.24-2.41-.6-3.54h0ZM206.64,122.33c-.05,12.96-1.54,20.09-3.23,24.45-1.02,0-2,.09-2.89.24-1.59-10.16-1.76-18.64-.48-25.93,1.08-.08,2.16-.29,3.23-.79,1.18-.56,2.22-1.35,3.06-2.27.19,1.13.34,2.5.34,4.31l-.03-.02Z"/>
+</svg></div>
+          <h6 style="color:var(--dark);">Humanoid robotok</h6>
+          <p style="color:var(--stone);">Jövőálló szolgáltatás</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1723,6 +1759,17 @@
       </div>
       <div class="apt-modal-info">
         <div>
+          <p class="apt-spec-title">A lakás</p>
+          <dl class="apt-spec-grid apt-spec-grid--primary">
+            <div><dt>Nettó alapterület</dt><dd id="aptSpecNetto">&mdash; m&sup2;</dd></div>
+            <div><dt>Bruttó alapterület</dt><dd id="aptSpecBrutto">&mdash; m&sup2;</dd></div>
+            <div><dt>Szobaszám</dt><dd id="aptSpecRooms">&mdash;</dd></div>
+            <div><dt>Erkély / terasz</dt><dd id="aptSpecTerasz">&mdash;</dd></div>
+            <div><dt>Privát kert</dt><dd id="aptSpecKert">&mdash;</dd></div>
+            <div><dt>Tájolás</dt><dd id="aptSpecTajoias">&mdash;</dd></div>
+          </dl>
+        </div>
+        <div>
           <p class="apt-spec-title">Helyiséglista</p>
           <table class="apt-room-table">
             <thead>
@@ -1734,18 +1781,14 @@
           </table>
         </div>
         <div>
-          <p class="apt-spec-title">Technikai paraméterek</p>
+          <p class="apt-spec-title">Az ingatlan</p>
           <dl class="apt-spec-grid">
             <div><dt>Lakásszám</dt><dd id="aptSpecId">&mdash;</dd></div>
             <div><dt>Épület</dt><dd id="aptSpecBuilding">&mdash;</dd></div>
             <div><dt>Szint</dt><dd id="aptSpecFloor">&mdash;</dd></div>
             <div><dt>Típus</dt><dd id="aptSpecType">&mdash;</dd></div>
-            <div><dt>Nettó alapterület</dt><dd id="aptSpecNetto">&mdash; m&sup2;</dd></div>
-            <div><dt>Bruttó alapterület</dt><dd id="aptSpecBrutto">&mdash; m&sup2;</dd></div>
-            <div><dt>Erkély / terasz</dt><dd id="aptSpecTerasz">&mdash;</dd></div>
-            <div><dt>Tájolás</dt><dd id="aptSpecTajoias">&mdash;</dd></div>
             <div><dt>Energiaosztály</dt><dd>A+</dd></div>
-            <div><dt>Státusz</dt><dd>Elérhető</dd></div>
+            <div><dt>Státusz</dt><dd id="aptSpecStatus">Elérhető</dd></div>
           </dl>
         </div>
       </div>
@@ -2080,7 +2123,8 @@
         img:     'img/alaprajz/A-L01_alaprajz.webp',
         netto:   '113,01',
         brutto:  '117,17',
-        terasz:  '27,60 m² terasz + 80–100 m² saját kert',
+        terasz:  '27,60 m² terasz',
+        kert:    '80–100 m² privát kert',
         tajoias: '—',
         rooms: [
           ['Előtér',           '10,52 m²'],
@@ -2103,7 +2147,8 @@
         img:     'img/alaprajz/A-L02_alaprajz.webp',
         netto:   '110,18',
         brutto:  '114,58',
-        terasz:  '34,06 m² terasz + 80–100 m² saját kert',
+        terasz:  '34,06 m² terasz',
+        kert:    '80–100 m² privát kert',
         tajoias: '—',
         rooms: [
           ['Előtér',           '8,73 m²'],
@@ -2125,6 +2170,7 @@
         netto:   '96,23',
         brutto:  '99,74',
         terasz:  '31,21 m² terasz',
+        kert:    '—',
         tajoias: '—',
         rooms: [
           ['Előtér',           '5,58 m²'],
@@ -2147,6 +2193,7 @@
         netto:   '130,32',
         brutto:  '134,49',
         terasz:  '59,42 m² terasz',
+        kert:    '—',
         tajoias: '—',
         rooms: [
           ['Előtér',          '12,60 m²'],
@@ -2172,6 +2219,7 @@
         netto:   '123,18',
         brutto:  '130,58',
         terasz:  '235,56 m² tetőterasz',
+        kert:    '—',
         tajoias: '—',
         rooms: [
           ['Lépcsőtér',        '8,67 m²'],
@@ -2202,7 +2250,9 @@
     const specType   = document.getElementById('aptSpecType');
     const specNetto  = document.getElementById('aptSpecNetto');
     const specBrutto = document.getElementById('aptSpecBrutto');
+    const specRooms  = document.getElementById('aptSpecRooms');
     const specTerasz = document.getElementById('aptSpecTerasz');
+    const specKert   = document.getElementById('aptSpecKert');
     const specTajoias= document.getElementById('aptSpecTajoias');
     let lastFocus    = null;
 
@@ -2227,7 +2277,10 @@
       specType.textContent    = d.type;
       specNetto.textContent   = d.netto + ' m\u00B2';
       specBrutto.textContent  = d.brutto + ' m\u00B2';
+      const szobaCount = d.rooms.filter(([nev]) => /^szoba/i.test(nev.trim())).length;
+      specRooms.textContent   = szobaCount > 0 ? szobaCount + ' szoba' : '\u2014';
       specTerasz.textContent  = d.terasz;
+      specKert.textContent    = d.kert || '\u2014';
       specTajoias.textContent = d.tajoias;
       // Megnyitás
       lastFocus = document.activeElement;
@@ -2266,13 +2319,21 @@
       modal.addEventListener('transitionend', updateScrollMask);
     }
 
-    // Táblázatsorok kattintása → modal (Ajánlat gomb saját linkje marad)
-    document.querySelectorAll('.apt-table-row').forEach(row => {
+    // Táblázatsorok ÉS mobil kártyák kattintása → modal (CTA/Ajánlat gomb saját linkje marad)
+    document.querySelectorAll('.apt-table-row, .apt-card-row').forEach(row => {
       row.addEventListener('click', e => {
         if (e.target.closest('a')) return;
         const apt      = row.dataset.apt;
         const building = row.dataset.building; // pl. "A2"
         if (apt) openModal(apt, building);
+      });
+      row.addEventListener('keydown', e => {
+        if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) {
+          e.preventDefault();
+          const apt = row.dataset.apt;
+          const building = row.dataset.building;
+          if (apt) openModal(apt, building);
+        }
       });
     });
   })();
