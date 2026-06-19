@@ -113,6 +113,49 @@
     }
   .apt-zone:hover > *,
   .apt-zone:focus-visible > * { opacity: .85; }
+
+  /* ── TELEKRAJZ (helyszínrajz) interaktív zónák ──
+     Alaphelyzet: háttér + Körvonalak látszik. A hover-réteg (épület-folt)
+     alapból rejtett, a zónára hoverre/fókuszra jelenik meg. A háttér és az
+     SVG fedésben, együtt mozognak (1135:420 arány). */
+  #Körvonalak { pointer-events: none; }
+  #Körvonalak * { pointer-events: none; }
+  .plot-zone {
+      cursor: pointer;
+      outline: none;
+  }
+  /* A hover-folt path-ja maga a kattintható/hover hit-area.
+     A telekrajz SVG saját osztálynevei (tr-st0/1/2), hogy ne ütközzenek
+     a homlokzati SVG .st0/.st1/.st2 színezésével. */
+  .fp-svg .plot-zone .plot-hover { pointer-events: auto; }
+  .fp-svg .plot-zone .plot-hover .tr-st1 {
+      opacity: 0;
+      transition: opacity .22s ease;
+      will-change: opacity;
+  }
+  .fp-svg .plot-zone:hover .plot-hover .tr-st1,
+  .fp-svg .plot-zone:focus-visible .plot-hover .tr-st1 { opacity: .8; }
+  .fp-svg .plot-zone:focus-visible .plot-hover { outline: 2px solid var(--gold-light); outline-offset: 0; }
+
+  /* ── Telekrajz: a belső réteg a konténer JOBB széléhez igazítva ──
+     Szűkebb képernyőn így a BAL oldal vágódik le (a ködös/üres bal rész),
+     a beépített telekrész jobbra végig látszik. A háttér és az SVG együtt
+     mozog, mert mindkettő a közös .fp-inner-en belül van. */
+  #panelTelekrajz .fp-inner {
+      left: auto;
+      right: 0;
+      transform: translateY(-50%);
+  }
+  /* Mobil (<576px): a telek-stage a tartalom (fekvő kivágás) magasságához
+     igazodik, nincs fölösleges fehér sáv fölötte-alatta. A homlokzati 860/700
+     arány itt nem érvényes — a telekrajz látható kivágása 860×420 (≈2.05). */
+  @media (max-width: 575px) {
+    #panelTelekrajz .fp-stage {
+        aspect-ratio: 860 / 420;
+        max-height: none;
+    }
+  }
+
   .fp-hint {
       font-size: var(--fs-xs);
       letter-spacing: .06em;
@@ -131,17 +174,22 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: var(--space-5);
+      padding: var(--space-4);
       background: rgba(20, 22, 24, .82);
       backdrop-filter: blur(3px);
     }
   .apt-modal-overlay.is-open { display: flex; }
+  /* A modal flex-oszlop: fejléc fent, lábléc lent fixen — a törzs tölti ki a
+     maradékot. Magassága a viewporthoz kötve, így mindig a képernyőn belül marad. */
   .apt-modal {
       position: relative;
       width: 100%;
-      max-width: 1000px;
-      max-height: 90vh;
-      overflow-y: auto;
+      max-width: 1080px;
+      max-height: 92vh;
+      max-height: calc(100dvh - 2 * var(--space-4));
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;            /* a belső sávok görgetnek, nem az egész modal */
       background: var(--cream);
       color: var(--dark);
       box-shadow: 0 30px 80px rgba(0,0,0,.5);
@@ -161,65 +209,90 @@
       font-size: 1.25rem;
       line-height: 1;
       cursor: pointer;
-      z-index: 2;
+      z-index: 3;
       transition: background .2s, color .2s;
     }
   .apt-modal-close:hover { background: var(--gold); color: var(--cream); border-color: var(--gold); }
+
+  /* ── Fejléc: fixen fent ── */
   .apt-modal-header {
-      padding: var(--space-8) var(--space-8) var(--space-5);
+      flex: 0 0 auto;
+      padding: var(--space-6) var(--space-12) var(--space-5) var(--space-8);
       border-bottom: 1px solid rgba(168,144,90,.25);
     }
   .apt-modal-eyebrow {
       font-size: var(--fs-xs);
-      letter-spacing: var(--ls-wide);
+      font-weight: 500;
+      letter-spacing: var(--ls-wider);
       text-transform: uppercase;
       color: var(--gold);
       margin: 0 0 var(--space-2);
     }
   .apt-modal-title {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
       font-weight: 200;
-      line-height: 1.1;
+      line-height: var(--lh-tight);
       margin: 0;
     }
+
+  /* ── Törzs: kitölti a maradék helyet, bal=alaprajz / jobb=adatok ── */
   .apt-modal-body {
+      flex: 1 1 auto;
+      min-height: 0;               /* enélkül a grid nem engedné a belső görgetést */
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: var(--space-10);
-      padding: var(--space-8);
+      grid-template-columns: 1.15fr 1fr;
+      gap: 0;
     }
-  /* Bal: alaprajz kép + észak-jel */
+  /* Bal: alaprajz kép — soha nem croppolva, mindig teljesen látszik */
   .apt-modal-plan {
       position: relative;
       background: #fff;
-      border: 1px solid var(--border);
+      border-right: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 320px;
-      padding: var(--space-4);
+      min-height: 0;
+      overflow: visible;           /* nem vagja le a képet */
+      padding: var(--space-6);
     }
   .apt-modal-plan img {
       max-width: 100%;
-      max-height: 70vh;
+      max-height: 100%;
+      width: auto;
+      height: auto;
       object-fit: contain;
       display: block;
     }
-  .apt-north {
-      position: absolute;
-      top: var(--space-4);
-      right: var(--space-4);
-      width: 44px;
-      height: 44px;
-      color: var(--dark);
-      opacity: .7;
+  /* Jobb: helyiséglista + technikai paraméterek — csak ez a sáv görget, ha kell */
+  .apt-modal-info {
+      min-height: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      padding: var(--space-7) var(--space-8);
+      /* Scroll fade indicator alul */
+      -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
+      mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
     }
-  /* Jobb: helyiséglista + technikai paraméterek */
-  .apt-modal-info { display: flex; flex-direction: column; gap: var(--space-6); }
+  /* Ha a tartalom a végéig gördült, eltüntetjük a maszkot */
+  .apt-modal-info.is-scrolled-bottom {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  /* Egyedi, jól látható scrollbar */
+  .apt-modal-info::-webkit-scrollbar { width: 4px; }
+  .apt-modal-info::-webkit-scrollbar-track { background: rgba(168,144,90,.08); }
+  .apt-modal-info::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 2px;
+    }
+  .apt-modal-info::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
   .apt-spec-title {
       font-size: var(--fs-xs);
-      letter-spacing: var(--ls-wide);
+      font-weight: 500;
+      letter-spacing: var(--ls-wider);
       text-transform: uppercase;
       color: var(--gold);
       margin: 0 0 var(--space-3);
@@ -240,7 +313,15 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
-  .apt-room-table td:last-child { text-align: right; color: var(--stone); }
+  .apt-room-table td {
+      font-weight: 300;            /* body súly — helyiségnevek */
+      color: var(--dark);
+    }
+  .apt-room-table td:last-child {
+      text-align: right;
+      font-weight: 400;            /* érték enyhén hangsúlyosabb */
+      color: var(--stone);
+    }
   .apt-spec-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -249,41 +330,111 @@
     }
   .apt-spec-grid dt {
       font-size: var(--fs-xs);
+      font-weight: 500;
       letter-spacing: .04em;
       text-transform: uppercase;
       color: var(--stone);
       margin-bottom: 2px;
     }
-  .apt-spec-grid dd { margin: 0 0 var(--space-2); font-weight: 400; }
+  .apt-spec-grid dd {
+      margin: 0;
+      font-weight: 400;            /* adat-érték — dark, olvasható */
+      color: var(--dark);
+    }
+
+  /* ── Lábléc: fixen lent, a CTA gomb mindig látszik ── */
   .apt-modal-footer {
-      padding: var(--space-6) var(--space-8) var(--space-8);
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      padding: var(--space-5) var(--space-8);
       border-top: 1px solid rgba(168,144,90,.25);
     }
   .apt-modal-legal {
+      flex: 1 1 auto;
       font-size: var(--fs-xs);
       line-height: var(--lh-normal);
       color: var(--stone);
-      margin: 0 0 var(--space-5);
+      margin: 0;
+    }
+  .apt-modal-footer .btn-solid-gold {
+      flex: 0 0 auto;
+      white-space: nowrap;
     }
 
-  @media (max-width: 767px) {
-    .apt-modal-body { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-6); }
-    .apt-modal-header { padding: var(--space-6) var(--space-6) var(--space-4); }
-    .apt-modal-footer { padding: var(--space-5) var(--space-6) var(--space-6); }
+  /* ── Tablet: egyenlő oszlopok ── */
+  @media (max-width: 991px) {
+    .apt-modal-body { grid-template-columns: 1fr 1fr; }
+    .apt-modal-info { padding: var(--space-6); }
+    .apt-modal-plan { padding: var(--space-4); }
   }
-  /* Mobil: a homlokzat 860×700 arányú keretben, középre, két széle croppolva,
-     a tartalom fölött-alatt fehér csík (max 700px magas) */
+
+  /* ── Mobil: egymás alatt, a törzs görget, fejléc + lábléc + CTA fixen marad ── */
+  @media (max-width: 767px) {
+    .apt-modal { max-height: calc(100dvh - 2 * var(--space-3)); }
+    .apt-modal-body {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      min-height: 0;
+    }
+    .apt-modal-plan {
+      flex: 0 0 auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      min-height: 180px;
+      /* Nincs max-height — a kép mindig teljes méretű, soha nem croppolva */
+      padding: var(--space-4);
+      overflow: visible;
+    }
+    .apt-modal-info {
+      flex: 0 0 auto;
+      overflow: visible;
+      -webkit-mask-image: none;
+      mask-image: none;
+      padding: var(--space-5) var(--space-5) var(--space-6);
+    }
+    .apt-modal-header { padding: var(--space-5) var(--space-10) var(--space-4) var(--space-5); }
+    .apt-modal-footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+    }
+    .apt-modal-footer .btn-solid-gold { width: 100%; text-align: center; }
+  }
+
+  /* Mobil: a homlokzat a tartalom magasságához igazodik (nincs fölösleges
+     fehér sáv fölötte-alatta). A két oldal továbbra is croppolva: a belső
+     réteg szélesebb (1135/860 ≈ 1.32×), így a középső ~860 széles rész látszik. */
   @media (max-width: 575px) {
     .fp-stage {
         height: auto;
-        aspect-ratio: 860 / 700;
-        max-height: 700px;
+        aspect-ratio: 860 / 420;
+        max-height: none;
     }
     /* a belső réteg szélessége akkora, hogy a 1135-ből a középső 860 töltse ki
        a keretet (1135/860 ≈ 1.32×), vízszintesen és függőlegesen középre;
        az overflow:hidden levágja a kilógó bal/jobb széleket */
     .fp-inner {
         width: calc(100% * 1135 / 860);
+        height: auto;
+        aspect-ratio: 1135 / 420;
+    }
+  }
+
+  /* 576–991px: a stage a TELJES kép arányát veszi fel (1135/420), a belső
+     réteg teljes szélességű — így a teljes homlokzat/telekrajz látszik,
+     vízszintes vágás nélkül, a magasság a tartalomhoz igazodik. */
+  @media (min-width: 576px) and (max-width: 991px) {
+    .fp-stage {
+        height: auto;
+        aspect-ratio: 1135 / 420;
+        max-height: none;
+    }
+    .fp-inner {
+        width: 100%;
         height: auto;
         aspect-ratio: 1135 / 420;
     }

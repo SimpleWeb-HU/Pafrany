@@ -114,7 +114,7 @@
   .btn-outline-gold { color: var(--gold); background: transparent; }
   .btn-outline-gold:hover { background: var(--gold); color: var(--dark); }
   .btn-solid-gold { color: var(--dark); background: var(--gold); }
-  .btn-solid-gold:hover { background: var(--gold-light); }
+  .btn-solid-gold:hover { background: var(--gold-light); color: var(--dark); }
 
   /* ── NAV ── */
   #navbar {
