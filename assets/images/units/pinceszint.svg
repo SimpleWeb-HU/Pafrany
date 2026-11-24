@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2220 2590" width="1110" height="1295" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-weight="400">
+<title>Basement plan, indicative</title>
+<rect x="70" y="70" width="1780" height="2280" fill="#ffffff"/>
+<rect x="100" y="100" width="295" height="490" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="247.5" y="345" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="395" y="100" width="290" height="490" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="540.0" y="345" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="685" y="100" width="290" height="490" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="830.0" y="345" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="975" y="100" width="275" height="490" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="1112.5" y="345" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="1250" y="100" width="275" height="490" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="1387.5" y="345" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="1525" y="100" width="295" height="490" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="1672.5" y="345" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="100" y="1265" width="300" height="495" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="250.0" y="1512" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="415" y="1265" width="300" height="495" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="565.0" y="1512" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="1205" y="1265" width="305" height="495" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="1357.5" y="1512" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="1525" y="1265" width="295" height="495" fill="none" stroke="#8c8780" stroke-width="4"/>
+<text x="1672.5" y="1512" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">P</text>
+<rect x="370" y="575" width="50" height="50" fill="#2f2c29"/>
+<rect x="950" y="575" width="50" height="50" fill="#2f2c29"/>
+<rect x="1500" y="575" width="50" height="50" fill="#2f2c29"/>
+<rect x="715" y="1240" width="490" height="530" fill="#2f2c29"/>
+<rect x="740" y="1265" width="440" height="480" fill="#ffffff"/>
+<line x1="1070" y1="1280" x2="1180" y2="1280" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1306" x2="1180" y2="1306" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1332" x2="1180" y2="1332" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1358" x2="1180" y2="1358" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1384" x2="1180" y2="1384" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1410" x2="1180" y2="1410" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1436" x2="1180" y2="1436" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1462" x2="1180" y2="1462" stroke="#8c8780" stroke-width="3"/>
+<line x1="1070" y1="1488" x2="1180" y2="1488" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1280" x2="850" y2="1280" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1306" x2="850" y2="1306" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1332" x2="850" y2="1332" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1358" x2="850" y2="1358" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1384" x2="850" y2="1384" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1410" x2="850" y2="1410" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1436" x2="850" y2="1436" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1462" x2="850" y2="1462" stroke="#8c8780" stroke-width="3"/>
+<line x1="740" y1="1488" x2="850" y2="1488" stroke="#8c8780" stroke-width="3"/>
+<rect x="870" y="1295" width="180" height="170" fill="none" stroke="#2f2c29" stroke-width="10"/>
+<line x1="880" y1="1305" x2="1040" y2="1455" stroke="#b9b4ad" stroke-width="3"/>
+<line x1="1040" y1="1305" x2="880" y2="1455" stroke="#b9b4ad" stroke-width="3"/>
+<rect x="760" y="1238" width="90" height="30" fill="#ffffff"/>
+<rect x="1070" y="1738" width="90" height="30" fill="#ffffff"/>
+<line x1="100" y1="1815" x2="715" y2="1815" stroke="#2f2c29" stroke-width="10"/>
+<line x1="945" y1="1815" x2="1820" y2="1815" stroke="#2f2c29" stroke-width="10"/>
+<text x="251.5" y="2080" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">T</text>
+<text x="564.0" y="2080" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">T</text>
+<text x="1072.5" y="2080" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">T</text>
+<text x="1356.5" y="2080" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">T</text>
+<text x="1669.0" y="2080" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">T</text>
+<line x1="408" y1="1815" x2="408" y2="2320" stroke="#2f2c29" stroke-width="10"/>
+<line x1="1200" y1="1815" x2="1200" y2="2320" stroke="#2f2c29" stroke-width="10"/>
+<line x1="1513" y1="1815" x2="1513" y2="2320" stroke="#2f2c29" stroke-width="10"/>
+<line x1="945" y1="1770" x2="945" y2="2320" stroke="#2f2c29" stroke-width="10"/>
+<rect x="160" y="1809" width="85" height="12" fill="#ffffff"/>
+<path d="M160 1815 A85 85 0 0 1 245 1900" fill="none" stroke="#b9b4ad" stroke-width="3"/>
+<line x1="245" y1="1815" x2="245" y2="1900" stroke="#b9b4ad" stroke-width="3"/>
+<rect x="473" y="1809" width="85" height="12" fill="#ffffff"/>
+<path d="M473 1815 A85 85 0 0 1 558 1900" fill="none" stroke="#b9b4ad" stroke-width="3"/>
+<line x1="558" y1="1815" x2="558" y2="1900" stroke="#b9b4ad" stroke-width="3"/>
+<rect x="1010" y="1809" width="85" height="12" fill="#ffffff"/>
+<path d="M1010 1815 A85 85 0 0 1 1095 1900" fill="none" stroke="#b9b4ad" stroke-width="3"/>
+<line x1="1095" y1="1815" x2="1095" y2="1900" stroke="#b9b4ad" stroke-width="3"/>
+<rect x="1265" y="1809" width="85" height="12" fill="#ffffff"/>
+<path d="M1265 1815 A85 85 0 0 1 1350 1900" fill="none" stroke="#b9b4ad" stroke-width="3"/>
+<line x1="1350" y1="1815" x2="1350" y2="1900" stroke="#b9b4ad" stroke-width="3"/>
+<rect x="1578" y="1809" width="85" height="12" fill="#ffffff"/>
+<path d="M1578 1815 A85 85 0 0 1 1663 1900" fill="none" stroke="#b9b4ad" stroke-width="3"/>
+<line x1="1663" y1="1815" x2="1663" y2="1900" stroke="#b9b4ad" stroke-width="3"/>
+<rect x="715" y="1770" width="235" height="550" fill="none" stroke="#2f2c29" stroke-width="10"/>
+<line x1="715" y1="1970" x2="950" y2="1970" stroke="#2f2c29" stroke-width="8"/>
+<rect x="750" y="2020" width="70" height="70" fill="none" stroke="#b9b4ad" stroke-width="4"/>
+<rect x="850" y="2020" width="70" height="70" fill="none" stroke="#b9b4ad" stroke-width="4"/>
+<rect x="750" y="2110" width="70" height="70" fill="none" stroke="#b9b4ad" stroke-width="4"/>
+<rect x="850" y="2110" width="70" height="70" fill="none" stroke="#b9b4ad" stroke-width="4"/>
+<rect x="750" y="2200" width="70" height="70" fill="none" stroke="#b9b4ad" stroke-width="4"/>
+<rect x="850" y="2200" width="70" height="70" fill="none" stroke="#b9b4ad" stroke-width="4"/>
+<path d="M70 70 H1850 V630 H1820 V100 H100 V2320 H1820 V1240 H1850 V2350 H70 Z" fill="#2f2c29" fill-rule="evenodd"/>
+<path d="M1850 630 C1970 630 2050 590 2150 540" fill="none" stroke="#2f2c29" stroke-width="26"/>
+<path d="M1850 1240 C1970 1240 2050 1280 2150 1330" fill="none" stroke="#2f2c29" stroke-width="26"/>
+<path d="M2110 935 H1730 M1790 890 L1730 935 L1790 980" fill="none" stroke="#a8905a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="70" y1="2446" x2="70" y2="2474" stroke="#2f2c29" stroke-width="4"/>
+<text x="70" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">0</text>
+<line x1="170" y1="2446" x2="170" y2="2474" stroke="#2f2c29" stroke-width="4"/>
+<text x="170" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">1</text>
+<line x1="270" y1="2446" x2="270" y2="2474" stroke="#2f2c29" stroke-width="4"/>
+<text x="270" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">2</text>
+<line x1="370" y1="2446" x2="370" y2="2474" stroke="#2f2c29" stroke-width="4"/>
+<text x="370" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">3</text>
+<line x1="470" y1="2446" x2="470" y2="2474" stroke="#2f2c29" stroke-width="4"/>
+<text x="470" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">4</text>
+<line x1="570" y1="2446" x2="570" y2="2474" stroke="#2f2c29" stroke-width="4"/>
+<text x="570" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">5</text>
+<line x1="70" y1="2460" x2="570" y2="2460" stroke="#2f2c29" stroke-width="4"/>
+<text x="630" y="2510" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#2f2c29">m</text>
+</svg>
