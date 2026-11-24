@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Humanoid robot services for residents | Robotics | Páfrány Boutique Residences</title>
+  <meta name="description" content="A pilot of humanoid robot services in a Budapest residence designed so that robots have room to work. What the pilot covers, who operates it and how privacy is protected.">
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!document.documentElement.dataset.appReady) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script>
+    // Opened from disk (file://): web fonts come from an embedded copy, because
+    // browsers block font files there. On a server: normal font preload.
+    if (location.protocol === 'file:') document.write('<link rel="stylesheet" href="assets/css/fonts-local.css">');
+    else document.write('<link rel="preload" href="assets/fonts/jost-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>');
+  </script>
+  <script src="assets/js/app.bundle.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header site-header--overlay" data-site-header data-project-component="site-header">
+    <div class="site-header__bar">
+      <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <span class="site-header__toggle-label" data-nav-label data-open="Menu" data-close="Close">Menu</span>
+      </button>
+      <a class="site-header__logo" href="index.html" aria-label="Páfrány Boutique Residences, home">
+        <img class="logo-dark" src="assets/images/logo-dark.webp" alt="Páfrány Boutique Residences" width="584" height="126">
+        <img class="logo-light" src="assets/images/logo-light.webp" alt="" width="584" height="126">
+      </a>
+      <div class="site-header__actions">
+        <a class="btn btn-pbr site-header__cta" href="contact.html#register">Enquire</a>
+      </div>
+    </div>
+    <nav id="site-nav" class="site-nav" aria-label="Main" data-nav-panel>
+      <div class="site-nav__inner">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="residences.html">Residences</a></li>
+          <li><a class="site-nav__link" href="location.html">Location</a></li>
+          <li><a class="site-nav__link" href="concept.html">Concept</a></li>
+          <li><a class="site-nav__link" href="technology.html">Technology</a></li>
+          <li><a class="site-nav__link" href="gaggenau.html">Gaggenau</a></li>
+          <li><a class="site-nav__link" href="robotics.html" aria-current="page">Robotics</a></li>
+          <li><a class="site-nav__link" href="journal.html">Journal</a></li>
+          <li><a class="site-nav__link" href="news.html">News</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="site-nav__lang" role="group" aria-label="Language">
+          <a href="robotics.html" lang="en" hreflang="en" aria-current="true">EN</a>
+          <a href="hu/robotika.html" lang="hu" hreflang="hu">HU</a>
+        </div>
+        <div class="site-nav__contactbar">
+          <a href="tel:+36703312181" aria-label="Call sales"><svg class="icon icon-phone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+          <a href="mailto:sales@apafrany.hu" aria-label="E-mail sales"><svg class="icon icon-mail" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></a>
+          <a href="location.html#map" aria-label="Location"><svg class="icon icon-pin" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12zM12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- SECTION: Pillar hero -->
+    <section class="page-hero page-hero--statement" data-project-component="page-hero">
+      <figure class="page-hero__media" data-crown-component="image" data-crown-key="rob_hero_image">
+        <picture>
+          <source media="(max-width: 767.98px)" type="image/webp" srcset="assets/images/hero-robotics-m-750.webp 750w, assets/images/hero-robotics-m-1080.webp 1080w, assets/images/hero-robotics-m-1512.webp 1512w" sizes="100vw">
+          <source media="(min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait)" type="image/webp" srcset="assets/images/hero-robotics-t-1024.webp 1024w, assets/images/hero-robotics-t-1536.webp 1536w, assets/images/hero-robotics-t-2016.webp 2016w" sizes="100vw">
+          <img src="assets/images/hero-robotics-1920.webp" srcset="assets/images/hero-robotics-1280.webp 1280w, assets/images/hero-robotics-1920.webp 1920w, assets/images/hero-robotics-2560.webp 2560w, assets/images/hero-robotics-3840.webp 3840w" sizes="100vw" alt="Humanoid robot making the bed in a residence bedroom" width="1920" height="815" fetchpriority="high">
+        </picture>
+      </figure>
+      <div class="page-hero__content" data-motion="fade-up">
+        <h1 class="page-hero__title page-hero__slogan" data-crown-component="text" data-crown-key="rob_hero_title">Humanoid robot services&nbsp;for&nbsp;residents</h1>
+      </div>
+    </section>
+
+    <!-- SECTION: Key facts + intro -->
+    <section class="section">
+      <div class="container">
+        <dl class="key-facts" data-crown-component="stat_list" data-crown-key="rob_key_facts">
+          <div class="key-facts__item"><dt class="key-facts__value">Pilot</dt><dd class="key-facts__label">Status</dd></div>
+          <div class="key-facts__item"><dt class="key-facts__value">[Approved services]</dt><dd class="key-facts__label">Services</dd></div>
+          <div class="key-facts__item"><dt class="key-facts__value">[Operator]</dt><dd class="key-facts__label">Operated by</dd></div>
+          <div class="key-facts__item"><dt class="key-facts__value">[Date]</dt><dd class="key-facts__label">Pilot start</dd></div>
+        </dl>
+        <div class="key-facts-intro">
+          <p class="intro-copy intro-copy--center" data-crown-component="text" data-crown-key="rob_intro_text">A robot residence is a home designed so that humanoid robots can work in it. At Páfrány Boutique Residences a pilot of humanoid robot services for residents is being prepared. This would make it the first residential development in Europe with such a service. The robots work in the shared spaces as an operated service. Residents do not have to buy or maintain them. The pilot builds on the <a href="technology.html">smart home technology at Páfrány</a> and is planned for residents of the <a href="residences.html">thirty residences</a> on <a href="location.html">Páfrány út in Buda</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Story blocks -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="story" data-project-component="story">
+          <figure class="media media--4x3 story__media" data-crown-component="image" data-crown-key="rob_story_pilot_image">
+            <img src="assets/images/rob-delivery-1080.webp" srcset="assets/images/rob-delivery-720.webp 720w, assets/images/rob-delivery-1080.webp 1080w, assets/images/rob-delivery-1440.webp 1440w, assets/images/rob-delivery-2160.webp 2160w" sizes="(min-width: 992px) 50vw, 100vw" alt="Humanoid robot carrying grocery bags to a residence entrance" width="1080" height="810" loading="lazy" decoding="async">
+          </figure>
+          <div class="story__body">
+            <header class="section-heading section-heading--tight" data-crown-component="heading" data-crown-key="rob_story_pilot_heading">
+              <h2 class="section-heading__title">What the robots do here</h2>
+            </header>
+            <p class="story__text" data-crown-component="text" data-crown-key="rob_story_pilot_text">[Approved service list.] Each service is described here only once it is confirmed, with the robot type, the operator and the start date.</p>
+          </div>
+        </div>
+        <div class="story story--reverse" data-project-component="story">
+          <figure class="media media--4x3 story__media" data-crown-component="image" data-crown-key="rob_story_safety_image">
+            <img src="assets/images/rob-towels-1080.webp" srcset="assets/images/rob-towels-720.webp 720w, assets/images/rob-towels-1080.webp 1080w, assets/images/rob-towels-1440.webp 1440w, assets/images/rob-towels-2160.webp 2160w" sizes="(min-width: 992px) 50vw, 100vw" alt="Humanoid robot carrying folded towels along a garden path at dusk" width="1080" height="810" loading="lazy" decoding="async">
+          </figure>
+          <div class="story__body">
+            <header class="section-heading section-heading--tight" data-crown-component="heading" data-crown-key="rob_story_safety_heading">
+              <h2 class="section-heading__title">Safety and privacy rules</h2>
+            </header>
+            <p class="story__text" data-crown-component="text" data-crown-key="rob_story_safety_text">How robots use the shared spaces, what their sensors record and who is responsible for each service will be set out here once agreed with the operator. [Safety and privacy rules to be confirmed.]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Divider -->
+    <div class="container" aria-hidden="true"><hr class="section-divider"></div>
+
+    <!-- SECTION: Pillar module – services. Hidden (hidden attribute) until the service list and statuses are confirmed; remove "hidden" to restore. -->
+    <section class="section section--band" id="services" hidden>
+      <div class="container">
+        <header class="section-heading section-heading--center" data-crown-component="heading" data-crown-key="rob_services_heading">
+          <h2 class="section-heading__title">Service areas and status</h2>
+        </header>
+        <div class="tech-showcase" data-project-component="tech-showcase">
+  <ul class="tech-showcase__list" role="tablist" aria-label="Service areas" data-showcase-list>
+      <li class="tech-showcase__item tech-showcase__item--sp is-active" data-showcase-item>
+        <button class="tech-showcase__trigger" type="button" role="tab" id="ts-rob-sp" aria-selected="true" aria-controls="ts-rob-panel" tabindex="0">
+          <span class="tech-showcase__stage">
+            <svg class="tech-showcase__line" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1254 1254"><defs><style> .phsp0 { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.50px; } </style></defs><rect class="phsp0" x="277" y="277" width="700" height="700"/><path class="phsp0" d="M277,277L977,977M977,277L277,977"/></svg> 
+            <img class="tech-showcase__fill" src="assets/images/ph-showcase-600.webp" srcset="assets/images/ph-showcase-600.webp 600w, assets/images/ph-showcase-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 48vw" alt="Humanoid robot in the shared spaces" loading="lazy" decoding="async">
+          </span>
+          <span class="tech-showcase__label">Shared spaces</span>
+        </button>
+        <div class="tech-showcase__data" data-showcase-data>
+          <h3 class="tech-showcase__data-title">Shared spaces</h3>
+          <p class="tech-showcase__data-text">[Service]. Status: pilot.</p>
+        </div>
+      </li>
+      <li class="tech-showcase__item tech-showcase__item--dl" data-showcase-item>
+        <button class="tech-showcase__trigger" type="button" role="tab" id="ts-rob-dl" aria-selected="false" aria-controls="ts-rob-panel" tabindex="-1">
+          <span class="tech-showcase__stage">
+            <svg class="tech-showcase__line" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1254 1254"><defs><style> .phdl0 { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.50px; } </style></defs><rect class="phdl0" x="277" y="277" width="700" height="700"/><path class="phdl0" d="M277,277L977,977M977,277L277,977"/></svg> 
+            <img class="tech-showcase__fill" src="assets/images/ph-showcase-600.webp" srcset="assets/images/ph-showcase-600.webp 600w, assets/images/ph-showcase-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 48vw" alt="Robot delivering a parcel to a residence door" loading="lazy" decoding="async">
+          </span>
+          <span class="tech-showcase__label">Deliveries</span>
+        </button>
+        <div class="tech-showcase__data" data-showcase-data>
+          <h3 class="tech-showcase__data-title">Deliveries within the residence</h3>
+          <p class="tech-showcase__data-text">[Service]. Status: [pilot / planned].</p>
+        </div>
+      </li>
+      <li class="tech-showcase__item tech-showcase__item--ih" data-showcase-item>
+        <button class="tech-showcase__trigger" type="button" role="tab" id="ts-rob-ih" aria-selected="false" aria-controls="ts-rob-panel" tabindex="-1">
+          <span class="tech-showcase__stage">
+            <svg class="tech-showcase__line" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1254 1254"><defs><style> .phih0 { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.50px; } </style></defs><rect class="phih0" x="277" y="277" width="700" height="700"/><path class="phih0" d="M277,277L977,977M977,277L277,977"/></svg> 
+            <img class="tech-showcase__fill" src="assets/images/ph-showcase-600.webp" srcset="assets/images/ph-showcase-600.webp 600w, assets/images/ph-showcase-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 48vw" alt="Robot assisting inside a residence" loading="lazy" decoding="async">
+          </span>
+          <span class="tech-showcase__label">In-home services</span>
+        </button>
+        <div class="tech-showcase__data" data-showcase-data>
+          <h3 class="tech-showcase__data-title">In-home services on request</h3>
+          <p class="tech-showcase__data-text">[Service]. Status: [planned].</p>
+        </div>
+      </li>
+  </ul>
+  <div class="tech-showcase__rail" aria-hidden="true"><span class="tech-showcase__marker" data-showcase-marker></span></div>
+  <div class="tech-showcase__panel" id="ts-rob-panel" role="tabpanel" aria-labelledby="ts-rob-sp" aria-live="polite" data-showcase-panel>
+    <h3 class="tech-showcase__title" data-showcase-title>Shared spaces</h3>
+    <p class="tech-showcase__text" data-showcase-text>[Service]. Status: pilot.</p>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: Journal and press (robotics) -->
+    <section class="section">
+      <div class="container">
+        <header class="section-heading section-heading--center" data-crown-component="heading" data-crown-key="rob_journal_heading">
+          <h2 class="section-heading__title">On robotics</h2>
+        </header>
+        <div class="rail" data-rail>
+          <button class="rail__btn rail__btn--prev" type="button" aria-label="Previous" data-rail-prev><svg class="icon icon-chevron-left" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <div class="rail__track" data-rail-track data-crown-component="card_list" data-crown-key="rob_journal_cards">
+            <article class="entry-card"><a class="entry-card__link" href="journal-article.html">
+              <div class="entry-card__media"><img src="assets/images/blog-humanoid-4x3-1200.webp" srcset="assets/images/blog-humanoid-4x3-720.webp 720w, assets/images/blog-humanoid-4x3-1200.webp 1200w" sizes="(min-width: 992px) 33vw, 100vw" alt="Humanoid robot in a home setting" width="1200" height="900" loading="lazy"></div>
+              <p class="entry-card__meta">Journal · Robotics</p>
+              <h3 class="entry-card__title">Humanoid robots at home: where things stand</h3>
+              <p class="entry-card__text">What today’s robots can and cannot do in a home.</p></a></article>
+            <article class="entry-card"><a class="entry-card__link" href="journal-article.html">
+              <div class="entry-card__media"><img src="assets/images/blog-hand-4x3-1200.webp" srcset="assets/images/blog-hand-4x3-720.webp 720w, assets/images/blog-hand-4x3-1200.webp 1200w" sizes="(min-width: 992px) 33vw, 100vw" alt="Hands of a person and a robot" width="1200" height="900" loading="lazy"></div>
+              <p class="entry-card__meta">Journal · Robotics</p>
+              <h3 class="entry-card__title">What we leave to a robot, and what we do not</h3>
+              <p class="entry-card__text">The human–machine line in the home.</p></a></article>
+            <article class="entry-card"><a class="entry-card__link" href="journal-article.html">
+              <div class="entry-card__media"><img src="assets/images/blog-corridor-4x3-1200.webp" srcset="assets/images/blog-corridor-4x3-720.webp 720w, assets/images/blog-corridor-4x3-1200.webp 1200w" sizes="(min-width: 992px) 33vw, 100vw" alt="Wide corridor and lift in a residential building" width="1200" height="900" loading="lazy"></div>
+              <p class="entry-card__meta">Journal · Robotics</p>
+              <h3 class="entry-card__title">How to design a home where robots can work</h3>
+              <p class="entry-card__text">Thresholds, lifts and charging points.</p></a></article>
+          </div>
+          <button class="rail__btn rail__btn--next" type="button" aria-label="Next" data-rail-next><svg class="icon icon-chevron-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section class="section section--band">
+      <div class="container">
+        <header class="section-heading section-heading--center" data-crown-component="heading" data-crown-key="rob_faq_heading">
+          <h2 class="section-heading__title">The robotics pilot</h2>
+        </header>
+        <div class="faq" data-project-component="faq">
+          <details class="faq__item"><summary class="faq__question">What does the robot do? <svg class="icon icon-plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq__answer"><p>[Approved service list.]</p></div></details>
+          <details class="faq__item"><summary class="faq__question">Who operates the robots? <svg class="icon icon-plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq__answer"><p>[Operator.] The robots are run as an operated service. Residents do not own them.</p></div></details>
+          <details class="faq__item"><summary class="faq__question">What does the service cost residents? <svg class="icon icon-plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq__answer"><p>[To be confirmed.]</p></div></details>
+          <details class="faq__item"><summary class="faq__question">What happens after the pilot? <svg class="icon icon-plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq__answer"><p>[To be confirmed.] The building is prepared so that services can be extended as the technology develops.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Register interest -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band" data-crown-component="content_cta" data-crown-key="rob_cta">
+          <div class="cta-band__content">
+            <h2 class="cta-band__title">Register your interest</h2>
+            <p class="cta-band__text">Floor plans, availability and private viewings for agents, buyers and their advisors.</p>
+            <a class="btn btn-pbr" href="contact.html#register">Register interest</a>
+          </div>
+        </div>
+        <div class="cta-band__contact">
+          <a href="tel:+36703312181">+36 70 331 2181</a>
+          <a href="mailto:sales@apafrany.hu">sales@apafrany.hu</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-project-component="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a class="site-footer__logo" href="index.html" aria-label="Páfrány Boutique Residences, home"><img src="assets/images/logo-dark.webp" alt="Páfrány Boutique Residences" width="584" height="126" loading="lazy"></a>
+      </div>
+      <nav class="site-footer__directory" aria-label="Site directory">
+        <div class="site-footer__col" data-footer-col>
+          <h2 class="site-footer__heading"><button class="site-footer__toggle" type="button" aria-expanded="false" aria-controls="footer-col-1" data-footer-toggle>Residences<svg class="icon site-footer__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h2>
+          <div class="site-footer__panel" data-footer-panel id="footer-col-1"><div class="site-footer__clip"><ul class="site-footer__links">
+            <li><a href="residences.html">Residences</a></li>
+            <li><a href="penthouse.html">Penthouses</a></li>
+            <li><a href="residences.html#units">Available residences</a></li>
+            <li><a href="residences.html#gallery">Gallery</a></li>
+          </ul></div></div>
+        </div>
+        <div class="site-footer__col" data-footer-col>
+          <h2 class="site-footer__heading"><button class="site-footer__toggle" type="button" aria-expanded="false" aria-controls="footer-col-2" data-footer-toggle>The project<svg class="icon site-footer__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h2>
+          <div class="site-footer__panel" data-footer-panel id="footer-col-2"><div class="site-footer__clip"><ul class="site-footer__links">
+            <li><a href="concept.html">Concept</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="gaggenau.html">Gaggenau</a></li>
+            <li><a href="robotics.html">Robotics</a></li>
+          </ul></div></div>
+        </div>
+        <div class="site-footer__col" data-footer-col>
+          <h2 class="site-footer__heading"><button class="site-footer__toggle" type="button" aria-expanded="false" aria-controls="footer-col-3" data-footer-toggle>Journal &amp; news<svg class="icon site-footer__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h2>
+          <div class="site-footer__panel" data-footer-panel id="footer-col-3"><div class="site-footer__clip"><ul class="site-footer__links">
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="news.html">News &amp; press room</a></li>
+          </ul></div></div>
+        </div>
+        <div class="site-footer__col" data-footer-col>
+          <h2 class="site-footer__heading"><button class="site-footer__toggle" type="button" aria-expanded="false" aria-controls="footer-col-4" data-footer-toggle>Contact<svg class="icon site-footer__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h2>
+          <div class="site-footer__panel" data-footer-panel id="footer-col-4"><div class="site-footer__clip"><ul class="site-footer__links">
+            <li><a href="contact.html#contact-details">Sales contacts</a></li>
+            <li><a href="location.html#map">Map and directions</a></li>
+            <li><a href="contact.html#developer">About the developer</a></li>
+          </ul></div></div>
+        </div>
+      </nav>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">Copyright © 2026 Lilongwe Property Kft. All rights reserved.</p>
+        <ul class="site-footer__legal" aria-label="Legal"><li><a href="#">Privacy policy</a></li><li><a href="#">Legal notice</a></li></ul>
+        <a class="site-footer__credit" href="https://simpleweb.hu" target="_blank" rel="noopener"><span>Made and supported by</span><svg class="site-footer__credit-logo" viewBox="14 11 204 44" role="img" aria-label="SimpleWeb" focusable="false" fill="currentColor"><path d="M45.17,17.8c1.94,0,3.32,1.25,3.32,2.99s-1.38,3.01-3.32,3.01-3.32-1.25-3.32-3.01,1.4-2.99,3.32-2.99ZM45.17,46.73c-1.96,0-3.07-1.17-3.07-3.38v-14.11c0-2.21,1.13-3.38,3.07-3.38s3.09,1.17,3.09,3.38v14.11c0,2.21-1.13,3.38-3.09,3.38Z"/><path d="M79.91,46.73c-1.98,0-3.07-1.17-3.07-3.38v-9.1c0-2.27-1.11-3.55-2.99-3.55s-3.11,1.44-3.11,3.72v8.93c0,2.21-1.02,3.38-2.94,3.38s-2.96-1.17-2.96-3.38v-9.06c0-2.25-1.15-3.59-3.03-3.59s-3.07,1.42-3.07,3.72v8.93c0,2.21-1.09,3.38-3.07,3.38s-3.09-1.17-3.09-3.38v-14.21c0-2.03,1.15-3.28,3.01-3.28,1.77,0,2.88,1.15,2.98,3.09v.58h.31c.63-2.3,2.84-3.8,5.62-3.8s4.95,1.46,5.61,3.88h.29c.79-2.34,3.13-3.88,6.1-3.88,4.03,0,6.51,2.5,6.51,6.58v11.04c0,2.21-1.11,3.38-3.09,3.38Z"/><path d="M90.39,53.7c-2,0-3.07-1.19-3.07-3.38v-21.08c0-2.17,1.08-3.38,3.03-3.38,1.82,0,2.92,1,3.07,2.84v.58h.31c.83-2.17,3.01-3.55,5.85-3.55,4.72,0,7.51,3.44,7.51,9.31v2.36c0,5.89-2.8,9.37-7.54,9.37-2.78,0-4.9-1.25-5.78-3.44h-.31v6.99c0,2.19-1.09,3.38-3.07,3.38ZM97.15,41.99c2.27,0,3.59-1.82,3.59-4.93v-1.61c0-3.15-1.32-4.93-3.63-4.93s-3.65,1.75-3.65,4.74v2.13c0,2.82,1.46,4.61,3.69,4.61Z"/><path d="M110.63,43.35v-21.17c0-2.23,1.11-3.4,3.07-3.4s3.09,1.17,3.09,3.4v21.17c0,2.21-1.13,3.38-3.09,3.38s-3.07-1.17-3.07-3.38Z"/><path d="M120.12,35.18c0-5.8,3.84-9.64,9.62-9.64,5.43,0,9.27,3.8,9.27,8.89,0,2.34-.83,3.19-3.03,3.19h-9.58v.75c.04,2.42,1.65,4.05,4.4,4.05,1.48,0,2.48-.33,3.26-.9.94-.6,1.34-.96,2.3-.96,1.25,0,2.07.81,2.07,2.11,0,1.09-.67,2.05-1.84,2.78-1.4,1-3.65,1.59-6.24,1.59-6.33,0-10.23-3.61-10.23-9.6v-2.27ZM133.19,34.08v-.06c0-2.34-1.31-3.88-3.32-3.88-2.17,0-3.47,1.57-3.47,3.88v.06h6.8Z"/><path d="M140.33,25.27c-.21-.79-.33-1.63-.33-2.15,0-1.79,1.27-3.01,3.11-3.01,1.69,0,2.69,1.09,3.23,3.47l3.26,14.51h.31l3.53-14.61c.58-2.38,1.54-3.38,3.32-3.38s2.78,1.04,3.36,3.38l3.51,14.61h.33l3.13-14.51c.48-2.34,1.55-3.47,3.26-3.47,1.8,0,3.07,1.23,3.07,2.96,0,.54-.1,1.36-.23,1.82l-5.13,18.6c-.61,2.21-1.77,3.21-3.69,3.21-2.02,0-3.3-1-3.92-3.38l-3.57-13.51h-.25l-3.61,13.69c-.56,2.09-1.86,3.21-3.74,3.21s-3.15-.79-3.84-3.21l-5.13-18.22Z"/><path d="M174.33,35.18c0-5.8,3.84-9.64,9.62-9.64,5.43,0,9.27,3.8,9.27,8.89,0,2.34-.83,3.19-3.03,3.19h-9.58v.75c.04,2.42,1.65,4.05,4.4,4.05,1.48,0,2.48-.33,3.26-.9.94-.6,1.34-.96,2.3-.96,1.25,0,2.07.81,2.07,2.11,0,1.09-.67,2.05-1.84,2.78-1.4,1-3.65,1.59-6.24,1.59-6.33,0-10.23-3.61-10.23-9.6v-2.27ZM187.4,34.08v-.06c0-2.34-1.31-3.88-3.32-3.88-2.17,0-3.47,1.57-3.47,3.88v.06h6.8Z"/><path d="M202.95,43.35h-.31v.5c0,1.86-1.21,2.9-3.05,2.9-1.98,0-3.05-1.21-3.05-3.4v-21.17c0-2.17,1.09-3.38,3.07-3.38s3.07,1.21,3.07,3.38v7.05h.31c.69-2.11,3.01-3.47,5.89-3.47,4.65,0,7.45,3.46,7.45,9.33v2.36c0,5.87-2.8,9.35-7.53,9.35-2.84,0-5.07-1.31-5.85-3.44ZM206.4,42.01c2.25,0,3.55-1.8,3.55-4.91v-1.57c0-3.13-1.32-5.01-3.59-5.01s-3.69,1.84-3.69,4.82v2.03c0,2.84,1.48,4.65,3.72,4.65Z"/><path d="M33.08,12.69c.53-.19.95-.3,1.5-.3,1.92,0,3.2,1.31,3.2,3.25,0,1.64-1.01,2.78-2.91,3.27l-12.63,4.58.36.14,12.23,4.74c1.92.57,2.93,1.73,2.93,3.33,0,1.94-1.31,3.33-3.16,3.33-.55,0-.97-.11-1.54-.34l-12.75-5.92c-2.93-1.16-3.98-2.78-3.98-5.14,0-2.49,1.14-4.22,3.98-5.25l12.77-5.69Z"/><path d="M33.8,37.05c2.85,1.03,3.98,2.76,3.98,5.25s-1.05,3.98-3.98,5.14l-12.75,5.92c-.57.23-.99.34-1.54.34-1.85,0-3.16-1.39-3.16-3.33,0-1.6,1.01-2.76,2.93-3.33l12.23-4.74.36-.14-12.63-4.58c-1.9-.48-2.91-1.62-2.91-3.27,0-1.94,1.29-3.25,3.2-3.25.55,0,.97.11,1.5.3l12.77,5.69Z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

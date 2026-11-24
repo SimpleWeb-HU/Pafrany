@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+html,body{margin:0;font-family:Jost,sans-serif}#m{position:absolute;inset:0}
+.maplibregl-ctrl-attrib,.maplibregl-ctrl-logo{display:none!important}
+.pin{position:relative;width:46px;height:46px}.pin svg{display:block;width:46px;height:46px}
+.tag{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#1E2022;color:#F2EDE4;font:500 11px/1 Jost,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:9px 12px}
+.poi{position:absolute;top:50%;left:0;display:flex;align-items:center;gap:8px;transform:translateY(-50%)}
+.poi.left{left:auto;right:0;flex-direction:row-reverse}
+.poi i{flex:none;width:14px;height:14px;border-radius:50%;background:#F2EDE4;border:2px solid #246649;box-sizing:border-box}
+.poi span{font:500 12px/1.2 Jost,sans-serif;color:#1E2022;white-space:nowrap;text-shadow:0 0 3px #F2EDE4,0 0 3px #F2EDE4,0 0 3px #F2EDE4}
+.poi small{display:block;font:400 11px/1.2 Jost,sans-serif;color:#5E5A52}
+</style>
+</head><body><div id="m"></div><script>
+const q=new URLSearchParams(location.search);
+const lang=q.get('lang')||'en';
+const SITE=[18.98381,47.53316];
+const POI=[
+  {ll:[18.98595,47.53147],en:['Apáthy rock','Nature reserve'],hu:['Apáthy-szikla','Védett terület']},
+  {ll:[18.98054,47.53064],en:['SEK Budapest','International school'],hu:['SEK Budapest','Nemzetközi iskola'],left:true},
+  {ll:[18.99973,47.53515],en:['Árpád lookout',''],hu:['Árpád-kilátó','']},
+  {ll:[18.96366,47.54121],en:['Hűvösvölgy',''],hu:['Hűvösvölgy','']},
+];
+fetch('pbr-style.json').then(r=>r.json()).then(style=>{
+  const b=new maplibregl.LngLatBounds(SITE,SITE); POI.forEach(p=>b.extend(p.ll));
+  const pad=+q.get('pad')||70;
+  window.map=new maplibregl.Map({container:'m',style,bounds:b,fitBoundsOptions:{padding:{top:pad+40,bottom:pad,left:pad+40,right:pad+60}},interactive:false,attributionControl:false,preserveDrawingBuffer:true,fadeDuration:0});
+  POI.forEach(p=>{const el=document.createElement('div');el.style.width='14px';el.style.height='14px';let [t,s]=p[lang]; if(q.get('compact')) s='';el.innerHTML='<div class="poi'+(p.left?' left':'')+'"><i></i><span>'+t+(s?'<small>'+s+'</small>':'')+'</span></div>';new maplibregl.Marker({element:el,anchor:'center'}).setLngLat(p.ll).addTo(map);});
+  const el=document.createElement('div');el.className='pin';el.innerHTML='<span class="tag">Páfrány Boutique Residences</span><svg viewBox="0 0 44 44"><path d="M22 43c-1-6-12-14-12-24a12 12 0 0 1 24 0c0 10-11 18-12 24z" fill="#246649"/><circle cx="22" cy="19" r="4.5" fill="#C4AB7A"/></svg>';
+  new maplibregl.Marker({element:el,anchor:'bottom'}).setLngLat(SITE).addTo(map);
+  map.on('idle',()=>{document.fonts.ready.then(()=>{window.READY=true})});
+});
+</script></body></html>

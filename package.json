@@ -1,0 +1,18 @@
+{
+  "name": "pafrany-static-frontend",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Páfrány Boutique Residences – static frontend demo for Crown CMS integration",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "sass --load-path=node_modules --style=compressed --no-source-map --quiet-deps assets/scss/app.scss assets/css/app.css",
+    "build:js": "esbuild assets/js/app.js --bundle --format=iife --target=es2019 --minify --outfile=assets/js/app.bundle.js",
+    "watch:css": "sass --load-path=node_modules --watch --quiet-deps assets/scss/app.scss assets/css/app.css",
+    "serve": "npx --yes serve -l 4173 ."
+  },
+  "devDependencies": {
+    "bootstrap": "5.3.3",
+    "esbuild": "0.23.1",
+    "sass": "1.77.8"
+  }
+}
