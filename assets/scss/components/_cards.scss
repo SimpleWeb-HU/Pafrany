@@ -1,0 +1,304 @@
+// Cards
+// .pillar-card  – portrait media link cards (Crown: media_link_card_list), Aman
+// .entry-card   – fine Journal / press cards (Crown: card_list), Forestis
+// .next-card    – large single link card to Residences
+// .rail         – horizontal row with prev/next controls (carousel.js)
+
+.pillar-cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  // phones: cards under each other; tablets: three in a row, or two by two
+  // when there are four (no swipe row)
+  @include media-breakpoint-down(md) { grid-template-columns: 1fr; gap: 2.5rem; }
+  @include media-breakpoint-only(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    &:has(> :nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+  }
+}
+
+.pillar-card {
+  display: flex;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover .pillar-card__title { color: $pbr-accent; }
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: $pbr-travertin-deep;
+
+    img,
+    video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms var(--motion-ease-out);
+    }
+
+    video { opacity: 0; transition: opacity var(--motion-duration-ui) var(--motion-ease-out); }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__link:hover &__media img { transform: scale(1.03); }
+  }
+
+  // Body fills the card: titles reserve two lines and the link sits at the
+  // bottom, so text blocks line up across a row
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1.25rem;
+  }
+  &__eyebrow { @extend .eyebrow; margin-bottom: .5rem; }
+
+  &__title {
+    margin: 0 0 .5rem;
+    min-height: 2.4em;
+    font-size: 1.375rem;
+    font-weight: 300;
+    line-height: 1.2;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+  }
+
+  &__text {
+    margin: 0;
+    font-size: .9375rem;
+    color: $pbr-muted;
+  }
+
+  &__cta {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: .9rem;
+    font-size: .875rem;
+    text-decoration: underline;
+    text-underline-offset: .35em;
+  }
+}
+
+// Fine entry cards (Journal + press)
+.rail {
+  position: relative;
+
+  &__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+    > * { scroll-snap-align: start; }
+
+    @include media-breakpoint-up(md) { grid-auto-columns: calc((100% - 3rem) / 3); gap: 1.5rem; }
+
+    // phones: cards under each other (no swipe row)
+    @include media-breakpoint-down(md) {
+      grid-auto-flow: row;
+      grid-auto-columns: auto;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      overflow: visible;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 32%;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $pbr-marvany;
+    cursor: pointer;
+
+    .icon { width: 20px; height: 20px; }
+    &:hover { color: $pbr-accent; }
+    &[disabled] { opacity: .25; cursor: default; }
+
+    &--prev { left: -3.25rem; }
+    &--next { right: -3.25rem; }
+
+    @include media-breakpoint-up(xl) {
+      .rail.has-overflow & { display: inline-flex; }
+    }
+  }
+}
+
+.entry-cards {
+  display: grid;
+  gap: 2.5rem 1.5rem;
+  grid-template-columns: 1fr;
+
+  @include media-breakpoint-up(md) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.entry-card {
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    &:hover .entry-card__title { color: $pbr-accent; }
+  }
+
+  &__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: $pbr-travertin-deep;
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  }
+
+  &__meta {
+    margin: 1.1rem 0 .5rem;
+    font-size: .8125rem;
+    color: $pbr-muted;
+  }
+
+  &__title {
+    margin: 0 0 .6rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.3;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+  }
+
+  &__text {
+    margin: 0;
+    font-size: .9375rem;
+    color: $pbr-muted;
+  }
+}
+
+// Large next-step card (Residences)
+.next-step {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+
+  @include media-breakpoint-up(lg) { grid-template-columns: 8fr 4fr; gap: 4rem; }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0 0 .75rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+}
+
+.next-card {
+  &__link {
+    position: relative;
+    display: block;
+    color: $pbr-travertin;
+    text-decoration: none;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba($pbr-marvany, .28);
+    }
+  }
+
+  &__media {
+    aspect-ratio: 16 / 9;
+    img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms var(--motion-ease-out); }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__link:hover img { transform: scale(1.02); }
+  }
+
+  &__body {
+    position: absolute;
+    left: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+    bottom: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+    z-index: 1;
+  }
+
+  &__eyebrow { @extend .eyebrow; color: rgba($pbr-travertin, .85); margin-bottom: .4rem; }
+  &__title { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); font-weight: 300; }
+}
+
+// ---------------------------------------------------------------------------
+// Phones (below md). Image hierarchy on every page: hero, then renders
+// (full width, _media.scss), then cards (3:2, content width), then Journal
+// thumbnails (small squares). Cards stay smaller than the renders.
+@include media-breakpoint-down(md) {
+  .pillar-card {
+    &__media { aspect-ratio: 3 / 2; }
+    &__title { min-height: 0; }
+  }
+
+  // Journal / press entries as a list (as on simpleweb.hu and blagussdmc.com):
+  // a small square thumbnail on the left, meta, title and text on the right,
+  // one row under the other with a hairline between the rows.
+  .entry-cards,
+  .rail__track { gap: 0; }
+
+  .entry-card {
+    padding-block: 1.25rem;
+    border-top: 1px solid $pbr-line;
+    &:last-child { border-bottom: 1px solid $pbr-line; }
+
+    &__link {
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      column-gap: 1.125rem;
+      align-items: start;
+    }
+    &__media {
+      grid-row: 1 / span 3;
+      aspect-ratio: 1;
+    }
+    &__meta { margin: 0 0 .25rem; }
+    &__title { margin: 0 0 .35rem; }
+  }
+}
+
+// Small tablets (md): four pillar cards two by two get a landscape image so
+// they stay below the renders in size.
+@include media-breakpoint-only(md) {
+  .pillar-cards:has(> :nth-child(4)) .pillar-card__media { aspect-ratio: 4 / 3; }
+}
+
+// Cards without a link (guide pages, v0.76): image, eyebrow, title, text
+.pillar-card--static {
+  flex-direction: column;
+  .pillar-card__title { min-height: 0; }
+}
+// Landscape image variant for three cards in a row (Apáthy-szikla routes)
+.pillar-cards--wide .pillar-card__media { aspect-ratio: 3 / 2; }
+.pillar-cards--wide { margin-top: 3rem; }

@@ -1,0 +1,192 @@
+// Gallery rail (Residences): one row, scrolls sideways with trackpad,
+// wheel + shift, touch swipe, mouse drag with momentum or the arrow
+// buttons (gallery-rail.js). Slides alternate between a wide (8/12 of the
+// content) and a narrow (4/12) slot at the same height, like the old
+// gallery's first row. On desktop the row starts in line with the header's
+// Menu / Close button and runs out past the right edge. Lightbox from
+// gallery.js.
+
+.gallery-rail {
+  --rail-gap: .75rem;
+  --rail-cw: calc(100vw - #{$grid-gutter-width});
+  --rail-wide: 82vw;
+  --rail-narrow: 52vw;
+  --rail-h: 62vw;
+  --rail-start: max(1rem, (100vw - var(--rail-cw)) / 2);
+
+  @each $bp, $w in $container-max-widths {
+    @include media-breakpoint-up($bp) { --rail-cw: calc(#{$w} - #{$grid-gutter-width}); }
+  }
+
+  @include media-breakpoint-up(md) {
+    --rail-gap: 1.25rem;
+    --rail-wide: calc((var(--rail-cw) + var(--rail-gap)) * 8 / 12 - var(--rail-gap));
+    --rail-narrow: calc((var(--rail-cw) + var(--rail-gap)) * 4 / 12 - var(--rail-gap));
+    --rail-h: calc(var(--rail-wide) * 3 / 4);
+  }
+
+  // Desktop: first image starts where the header's Menu / Close button does
+  @include media-breakpoint-up(lg) { --rail-start: 2.5rem; }
+
+  .gallery__filters { margin-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.5rem); }
+
+  &__stage { position: relative; }
+
+  &__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding-inline: var(--rail-start) max(1rem, (100vw - var(--rail-cw)) / 2);
+    cursor: grab;
+    outline: none;
+
+    &::-webkit-scrollbar { display: none; }
+    &:focus-visible { box-shadow: inset 0 0 0 2px $pbr-accent; }
+  }
+
+  &.is-dragging &__viewport {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--rail-gap);
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: opacity var(--motion-duration-ui) var(--motion-ease-out);
+
+    &.is-switching { opacity: 0; }
+  }
+
+  &__slide {
+    flex: none;
+    height: var(--rail-h);
+    width: var(--rail-wide);
+    overflow: hidden;
+    background: $pbr-travertin-deep;
+
+    &--narrow { width: var(--rail-narrow); }
+    &[hidden] { display: none; }
+
+    .gallery__open {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      -webkit-user-drag: none;
+      transition: transform 400ms var(--motion-ease-out);
+    }
+  }
+
+  // Arrow layer over the images: two square buttons on the image row,
+  // aligned with the header's outer edges (Menu / Close on the left,
+  // Enquire on the right, 2.5rem), centred vertically. Only the buttons
+  // take pointer events.
+  &__nav {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2.5rem;
+    pointer-events: none;
+
+    @include media-breakpoint-down(md) { display: none; }
+  }
+
+  &__arrow {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    background: $pbr-travertin;
+    color: $pbr-marvany;
+    cursor: pointer;
+    transition:
+      opacity var(--motion-duration-ui) var(--motion-ease-out),
+      background-color var(--motion-duration-hover) var(--motion-ease-out),
+      color var(--motion-duration-hover) var(--motion-ease-out);
+
+    // same drawing as the header Close icon
+    .icon { width: 22px; height: 22px; stroke-width: 1.4; }
+
+    &:hover { background: $pbr-marvany; color: $pbr-travertin; }
+    &:focus-visible { outline: 2px solid $pbr-accent; outline-offset: 2px; }
+
+    &:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:not(.is-dragging) .gallery-rail__slide:hover img { transform: scale(1.02); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__track,
+    &__slide img,
+    &__arrow { transition: none; }
+  }
+}
+
+// Phones and tablets: a still image grid at the content width, all 4:3, no
+// swipe row and no arrows; a tap opens the lightbox. Phones: one large image
+// per row, the first six shown, the rest behind "Show all photos"
+// (gallery-rail.js). Small tablets: two per row. The tabs stay.
+@include media-breakpoint-down(lg) {
+  .gallery-rail {
+    &__viewport {
+      overflow: visible;
+      padding-inline: 0;
+      cursor: auto;
+      max-width: var(--rail-cw);
+      margin-inline: auto;
+    }
+    &__track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75rem;
+      width: auto;
+
+      @include media-breakpoint-up(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    }
+    &__slide,
+    &__slide--narrow {
+      width: auto;
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
+    &__nav { display: none; }
+  }
+}
+
+.gallery-rail__more { display: none; }
+
+@include media-breakpoint-down(md) {
+  .gallery-rail:not(.is-expanded) .gallery-rail__slide.is-more { display: none; }
+  .gallery-rail__more {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    &[hidden] { display: none; }
+  }
+}

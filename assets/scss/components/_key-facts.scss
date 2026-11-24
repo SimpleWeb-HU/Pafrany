@@ -1,0 +1,52 @@
+// Key facts (Crown: stat_list): four facts side by side, centred, value
+// above a thin rule, label below it; 2×2 on mobile. Sits close under the
+// hero (the section holding it gets a shorter top padding).
+
+.key-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.5rem;
+  margin: 0 auto;
+  max-width: 62rem;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__value {
+    margin: 0;
+    padding-bottom: .9rem;
+    border-bottom: 1px solid $pbr-marvany;
+    font-size: clamp(1.2rem, 1.05rem + .6vw, 1.6rem);
+    font-weight: 300;
+    line-height: 1.25;
+  }
+
+  &__label {
+    margin: 0;
+    padding-top: .9rem;
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: $pbr-muted;
+  }
+
+  &__suffix,
+  &__prefix { font-size: .7em; }
+}
+
+.key-facts-intro {
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+// closer to the hero
+.section:has(> .container > .key-facts:first-child) {
+  padding-top: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+}

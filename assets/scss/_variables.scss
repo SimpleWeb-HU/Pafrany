@@ -1,0 +1,137 @@
+// =============================================================
+// Páfrány Boutique Residences – design tokens
+// Single source of truth (Crown guide 17.2). Colours from the
+// brand guide (Arculati színek), type: Jost only.
+// =============================================================
+
+// Brand palette
+$pbr-travertin:       #F2EDE4; // ground (60%)
+$pbr-travertin-deep:  #E6E0D4; // alternating band
+$pbr-paper:           #FAF8F3; // raised surface (form fields, panels)
+$pbr-marvany:         #1E2022; // Fekete márvány – text, buttons (30%)
+$pbr-bazalt:          #868784; // Bazalt – decorative lines only
+$pbr-muted:           #5E5A52; // secondary text (5.9:1 on travertin)
+$pbr-line:            #CFC7B8; // hairlines
+$pbr-orokzold:        #246649; // Örökzöld – accent (10%)
+$pbr-pafranylevel:    #8BA66D; // Páfránylevél – decorative only
+$pbr-arany:           #C4AB7A; // Pezsgő arany – decorative lines only
+$pbr-bronz:           #7A6431; // Bronz – small accent text (5.3:1)
+
+// Accent for hover, active, selection and focus states: Pezsgő arany
+// (replaces Örökzöld, 2026-11-05). Where accent text must stay legible
+// at rest (success message, status badge) Bronz is used.
+$pbr-accent:          $pbr-arany;
+
+// Bootstrap colour overrides
+$primary:   $pbr-marvany;
+$secondary: $pbr-muted;
+$success:   $pbr-bronz;
+$danger:    #9B2C2C;
+$light:     $pbr-travertin;
+$dark:      $pbr-marvany;
+
+$body-bg:             $pbr-travertin;
+$body-color:          $pbr-marvany;
+$body-secondary-color: $pbr-muted;
+$border-color:        $pbr-line;
+
+$link-color:                 $pbr-marvany;
+$link-decoration:            underline;
+$link-underline-offset:      .25em;
+$link-hover-color:           $pbr-accent;
+
+// Typography – Jost, scale 1.25
+$font-family-sans-serif: "Jost", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-base:       $font-family-sans-serif;
+$font-size-base:         1.0625rem; // 17px
+$font-weight-light:      300;
+$font-weight-normal:     400;
+$font-weight-medium:     500;
+$font-weight-base:       400;
+$line-height-base:       1.6;
+
+$headings-font-weight:   300;
+$headings-line-height:   1.15;
+$headings-margin-bottom: 1rem;
+
+$h1-font-size: 3.05rem;   // 52px
+$h2-font-size: 2.44rem;   // 41px
+$h3-font-size: 1.56rem;   // 26.5px
+$h4-font-size: 1.25rem;
+$h5-font-size: 1.0625rem;
+$h6-font-size: .875rem;
+
+$lead-font-size:   1.25rem;
+$lead-font-weight: 300;
+
+// Shape: square corners, no shadows
+$enable-rounded:  false;
+$enable-shadows:  false;
+$border-radius:     0;
+$border-radius-sm:  0;
+$border-radius-lg:  0;
+$border-radius-xl:  0;
+$border-radius-xxl: 0;
+
+// Spacing – extra steps for generous section rhythm
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 8
+);
+
+// Grid
+$grid-gutter-width: 2rem;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1180px,
+  xxl: 1320px
+);
+
+// Buttons
+$btn-padding-y:       .9rem;
+$btn-padding-x:       1.75rem;
+$btn-font-size:       .75rem;
+$btn-font-weight:     500;
+$btn-border-width:    1px;
+$btn-transition:      color 150ms cubic-bezier(.22,1,.36,1), background-color 150ms cubic-bezier(.22,1,.36,1), border-color 150ms cubic-bezier(.22,1,.36,1);
+
+// Forms (Panerai-style boxed fields, label above)
+// no fill: fields sit on the page background, the line carries the shape
+$input-bg:              transparent;
+$input-disabled-bg:     rgba($pbr-marvany, .04);
+$form-check-input-bg:   transparent;
+$input-border-color:    #B9B0A0;
+$input-border-width:    1px;
+$input-padding-y:       .85rem;
+$input-padding-x:       1rem;
+$input-font-size:       1rem;
+$input-focus-border-color: $pbr-marvany;
+$input-focus-box-shadow:   0 0 0 2px rgba($pbr-marvany, .15);
+$form-label-font-size:  .8125rem;
+$form-label-font-weight: 500;
+$form-label-margin-bottom: .4rem;
+$form-check-input-border: 1px solid $pbr-marvany;
+$form-check-input-checked-bg-color: $pbr-marvany;
+$form-check-input-checked-border-color: $pbr-marvany;
+
+// Tables
+$table-cell-padding-y: .9rem;
+$table-cell-padding-x: .75rem;
+$table-border-color:   $pbr-line;
+$table-bg:             transparent;
+
+// Layout constants used by components
+$pbr-header-height:        88px;
+$pbr-header-height-mobile: 64px;
+$pbr-nav-row-height:       52px;   // desktop nav row under the bar (open state)
+$pbr-measure:              38rem; // ~65 characters

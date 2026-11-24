@@ -1,0 +1,245 @@
+// Type roles: the one place where text sizes, weights and letter-spacing
+// are set for the components. Every text element belongs to one role; a
+// component may change colour or spacing, not the type itself. Imported
+// last so it wins over component files and the ported unit-selector CSS.
+// Jost in three weights only (300, 400, 500).
+//
+//   display  hero title / slogan                     (_hero.scss)
+//   h2       section titles, CTA title, statement     clamp(1.85rem … $h2-font-size), 300
+//   h3       card titles, stat values, unit ids        1.375rem / 1.25, 300
+//   lead     intro paragraphs                          1.25rem / 1.6, 300
+//   body     running text                              1.0625rem / 1.6, 400
+//   large    FAQ questions                             1.125rem / 1.5, 400
+//   small    card text, links, table cells, filters    .9375rem / 1.6, 400
+//   xs       meta, hints, sub-labels                   .8125rem / 1.5, 400
+//   label    eyebrows, table heads, tabs, badges       .6875rem / 1.6, 500, .18em, uppercase
+//   button   buttons                                   .75rem, 500, .18em, uppercase (Bootstrap $btn-*)
+
+@mixin type-h2 {
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  font-size: clamp(1.85rem, 1.4rem + 1.6vw, #{$h2-font-size}); // same as h2 in _base.scss
+}
+@mixin type-h3 {
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+}
+@mixin type-lead {
+  font-size: clamp(1.125rem, 1.05rem + .3vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+@mixin type-body {
+  font-size: $font-size-base;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+@mixin type-large {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+@mixin type-small {
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-transform: none;
+}
+@mixin type-xs {
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+@mixin type-label {
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+// h2
+.section-heading__title,
+.cta-band__title,
+.statement__title { @include type-h2; }
+.statement__title.statement__title { line-height: 1.3; }
+
+// h3
+.pillar-card__title,
+.entry-card__title,
+.key-facts__value { @include type-h3; }
+
+// lead
+.intro-copy,
+.amenities__intro,
+.article-head__summary { @include type-lead; }
+
+// body
+.cta-band__text { @include type-body; }
+
+// large
+.faq__question { @include type-large; }
+
+// small
+.link-more,
+.pillar-card__text,
+.pillar-card__cta,
+.entry-card__text,
+.amenities__text,
+.gallery__filters button { @include type-small; }
+
+// xs
+.entry-card__meta,
+.page-hero__scroll { @include type-xs; }
+.page-hero__scroll { letter-spacing: .06em; }
+
+// label (timeline years: label, one step larger)
+.timeline__year { @include type-label; font-size: .875rem; letter-spacing: .16em; }
+.timeline__text { @include type-small; }
+
+.eyebrow,
+.pillar-card__eyebrow,
+.key-facts__label,
+.amenities__title { @include type-label; }
+
+// Inline note inside a button, e.g. "(PDF)": same size, lighter
+.btn span { font-weight: 300; letter-spacing: .08em; }
+
+// Ported unit selector / table / cards (_unit-selector.scss).
+// Doubled class for specificity over the ported rules.
+.unit-selector.unit-selector {
+  .building-label { @include type-h2; }
+  .building-label.building-label { letter-spacing: .02em; }
+  .apt-card-id { @include type-h3; }
+
+  td,
+  .apt-table td.apt-id,
+  .apt-id,
+  .apt-card-type,
+  .apt-card-stat-val { @include type-small; }
+  .apt-table td.apt-id,
+  .apt-card-stat-val { font-weight: 500; }
+
+  .fp-hint,
+  .label-sm__sub { @include type-xs; }
+
+  .label-sm,
+  th,
+  .floor-btn,
+  .apt-filter-btn,
+  .status-available,
+  .status-sold,
+  .apt-card-stat-lbl,
+  .btn-outline-gold,
+  .btn-solid-gold { @include type-label; }
+  .phase-badge { @include type-label; letter-spacing: .12em; }
+}
+
+// Unit modal
+.apt-modal .apt-modal-title { font-weight: 300; }
+
+// ---------------------------------------------------------------------------
+// Role audit, v0.66 (2026-11-20): elements that had drifted from the roles.
+// h2
+.pbr-form__part-title,
+.article-content h2 { @include type-h2; }
+// h3
+.related-pillar__title,
+.route-card__title,
+.news-list__title,
+.article-content h3 { @include type-h3; }
+// body
+.article-content p,
+.article-content li,
+.pbr-choice__legend { @include type-body; }
+// small
+.pbr-option__text,
+.form-check-label,
+.guide-distances dd { @include type-small; }
+.unit-selector.unit-selector .apt-spec-grid dd,
+.apt-modal .apt-spec-grid dd { @include type-small; }
+.unit-selector.unit-selector .apt-spec-grid--primary dd,
+.apt-modal .apt-spec-grid--primary dd { @include type-small; font-weight: 500; }
+// xs
+.news-list__date,
+.news-list__source,
+.required-note,
+.form-text,
+.pbr-choice__hint,
+.unit-table-note,
+.apt-modal .apt-modal-legal { @include type-xs; }
+// label
+.form-label,
+.page-hero__updated,
+.route-card__meta,
+.news-list__type,
+.unit-table__status,
+.guide-distances dt,
+.pbr-form__part-no,
+.pbr-choice__no,
+.apt-modal .apt-modal-eyebrow,
+.apt-modal .apt-spec-title,
+.apt-modal .apt-spec-grid dt,
+.unit-selector.unit-selector .apt-spec-grid dt { @include type-label; }
+.apt-modal .apt-modal-title { @include type-h2; }
+.pbr-form .form-check-label,
+.article-toc li,
+.article-toc a { @include type-small; }
+.unit-table th { @include type-label; }
+// Article title: the same display size as the hero titles
+.article-head__title { font-size: clamp(1.9rem, 1.35rem + 2vw, 3.1rem); }
+// Penthouse table: the unit id becomes the card title on mobile
+@include media-breakpoint-down(md) {
+  .unit-table td.unit-table__unit { @include type-h3; }
+}
+// Showcase texts under each item (phones, tablets, no JS): same roles as the shared box
+.tech-showcase__data-title { @include type-h3; }
+.tech-showcase__data-text { @include type-body; }
+
+// Phones: Journal entry rows (_cards.scss) set their title one step down,
+// in the large role's size with the h3 weight, so a title fits beside the
+// thumbnail in two or three lines.
+@include media-breakpoint-down(md) {
+  .entry-card__title { font-size: 1.125rem; line-height: 1.3; text-wrap: pretty; }
+}
+
+// Site footer (_footer.scss): everything in the xs role, the column titles
+// in the xs size with weight 500
+.site-footer,
+.site-footer__note,
+.site-footer__links,
+.site-footer__copy,
+.site-footer__legal { @include type-xs; }
+.site-footer__toggle { @include type-xs; font-weight: 500; }
+
+// Basement switch and notes in the unit selector (v0.75)
+.apt-modal .apt-plan-tab { @include type-label; }
+.apt-modal .apt-plan-note { @include type-xs; }
+.unit-selector .apt-table-note { @include type-small; }
+
+// One body text across the site (v0.77): the intro paragraphs, the running
+// text, the FAQ answers, the call-to-action lines and the card texts all use
+// the body role in the main text colour
+.intro-copy,
+.rich-text,
+.story__text,
+.faq__answer-inner,
+.cta-band__text,
+.pillar-card__text,
+.route-card__text,
+.entry-card__text,
+.tech-showcase__text,
+.tech-showcase__data-text {
+  @include type-body;
+  color: $pbr-marvany;
+}
+.site-footer__credit { @include type-xs; }

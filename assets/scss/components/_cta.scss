@@ -1,0 +1,54 @@
+// Register interest CTA (Crown: content_cta)
+
+.cta-band {
+  text-align: center;
+
+  &__content {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+    font-weight: 300;
+  }
+
+  &__text { color: $pbr-muted; margin: 0 0 2rem; }
+
+  &__contact {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem 1.75rem;
+    font-size: .9375rem;
+
+    a { color: inherit; }
+  }
+}
+
+// Dark variant: where the CTA follows a light section and sits right above
+// the (travertin-deep) footer, e.g. Location after the FAQ.
+.section--dark {
+  background: $pbr-marvany;
+  color: $pbr-travertin;
+
+  .cta-band__title { color: $pbr-travertin; }
+  .cta-band__text,
+  .cta-band__contact { color: rgba($pbr-travertin, .72); }
+
+  .btn-pbr {
+    --bs-btn-bg: #{$pbr-travertin};
+    --bs-btn-color: #{$pbr-marvany};
+    --bs-btn-border-color: #{$pbr-travertin};
+    --bs-btn-hover-bg: #{$pbr-arany};
+    --bs-btn-hover-color: #{$pbr-marvany};
+    --bs-btn-hover-border-color: #{$pbr-arany};
+    background: $pbr-travertin;
+    color: $pbr-marvany;
+    border-color: $pbr-travertin;
+
+    &:hover { background: $pbr-arany; border-color: $pbr-arany; color: $pbr-marvany; }
+    &:focus-visible { outline-color: $pbr-arany; }
+  }
+}

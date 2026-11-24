@@ -1,0 +1,178 @@
+// Site footer, after apple.com: logo with a note line, a site directory in
+// columns and a bottom row (copyright, legal links). All text in the xs
+// role, muted, on the light band.
+// Phones (below md): logo centred and larger, no note line; the directory
+// columns fold into an accordion of equal 48 px rows (footer.js); the
+// bottom row is centred. Without JS every list stays open.
+
+.site-footer {
+  padding-block: 3rem 2rem;
+  background: $pbr-travertin-deep;
+  color: $pbr-muted;
+
+  a {
+    color: $pbr-muted;
+    text-decoration: none;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+
+    &:hover { color: $pbr-marvany; text-decoration: underline; text-underline-offset: .3em; }
+    &:focus-visible { outline: 2px solid $pbr-accent; outline-offset: 2px; }
+  }
+
+  // note line with the logo
+  // logo centred, no note line (v0.76)
+  &__top {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $pbr-line;
+  }
+  &__logo { flex: none; }
+  &__logo img { display: block; height: 36px; width: auto; }
+  &__note { margin: 0; }
+
+  // site directory
+  &__directory {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: .5rem;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+  }
+
+  &__heading { margin: 0; }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $pbr-marvany;
+    text-align: left;
+    cursor: default;
+  }
+  &__chev { display: none; width: 16px; height: 16px; transition: transform 300ms var(--motion-ease-in-out); }
+
+  &__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li { margin-top: .6rem; }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid $pbr-line;
+  }
+  &__copy { margin: 0; }
+
+  // Made and supported by SimpleWeb (v0.81): right end of the bottom row,
+  // logo in the footer text colour, SimpleWeb yellow on hover
+  &__credit {
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+
+    @include media-breakpoint-up(md) { margin-left: auto; }
+
+    &:hover .site-footer__credit-logo { color: #ffca3a; }
+  }
+  // the logo sits on the text baseline: its letters' baseline is 18.9% of
+  // the drawing's height above the bottom, so it drops by that much
+  &__credit-logo {
+    display: inline-block;
+    height: 1.15em;
+    width: auto;
+    margin-left: .45em;
+    vertical-align: -.217em;
+    color: $pbr-muted;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+  }
+
+  &__legal {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li + li { margin-left: .75rem; padding-left: .75rem; border-left: 1px solid $pbr-line; }
+  }
+
+  // phones: centred logo, accordion, centred bottom row
+  @include media-breakpoint-down(md) {
+    padding-top: 2.5rem;
+
+    &__top {
+      align-items: center;
+      padding-bottom: 2rem;
+    }
+    &__logo img { height: 44px; }
+    &__note { display: none; }
+
+    &__directory { padding-top: 0; }
+    &__col { border-bottom: 1px solid $pbr-line; }
+
+    // every row the same height
+    &__toggle {
+      height: 3rem;
+      padding: 0;
+    }
+
+    .js & {
+      .site-footer__toggle { cursor: pointer; }
+      .site-footer__chev { display: block; }
+      .site-footer__toggle[aria-expanded="true"] .site-footer__chev { transform: rotate(180deg); }
+
+      // the list opens with the grid-rows technique (user-triggered,
+      // 350 ms); all spacing sits inside the clipped box, so nothing jumps
+      .site-footer__panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 350ms var(--motion-ease-in-out);
+      }
+      .site-footer__col.is-open .site-footer__panel { grid-template-rows: 1fr; }
+      .site-footer__clip { min-height: 0; overflow: hidden; }
+      .site-footer__links {
+        padding: 0 0 1.1rem .75rem;
+        opacity: 0;
+        transition: opacity 250ms var(--motion-ease-out);
+        li:first-child { margin-top: 0; }
+      }
+      .site-footer__col.is-open .site-footer__links { opacity: 1; transition-delay: 80ms; }
+    }
+
+    &__bottom {
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      margin-top: 2rem;
+      padding-top: 0;
+      border-top: 0;
+      text-align: center;
+    }
+    &__legal { justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer__chev,
+    .site-footer__panel,
+    .site-footer__links { transition: none !important; }
+  }
+}
+
+// the credit link keeps no underline on hover (beats .site-footer a:hover)
+.site-footer a.site-footer__credit:hover { text-decoration: none; }

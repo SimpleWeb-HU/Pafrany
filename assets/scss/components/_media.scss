@@ -1,0 +1,95 @@
+// Media: single image (Crown: image), asymmetric collage (Crown: gallery)
+
+.media {
+  margin: 0;
+  overflow: hidden;
+  background: $pbr-travertin-deep;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--16x9 { aspect-ratio: 16 / 9; }
+  &--21x9 { aspect-ratio: 21 / 9; }
+  &--4x3  { aspect-ratio: 4 / 3; }
+  &--3x4  { aspect-ratio: 3 / 4; }
+  &--4x5  { aspect-ratio: 4 / 5; }
+
+  figcaption {
+    padding-top: .75rem;
+    font-size: .8125rem;
+    color: $pbr-muted;
+    background: $pbr-travertin;
+  }
+}
+
+// Forestis-style collage: tall image left, two stacked right
+.collage {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: 1.25rem;
+  }
+
+  &__item {
+    margin: 0;
+    overflow: hidden;
+    background: $pbr-travertin-deep;
+
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    &:nth-child(1) {
+      aspect-ratio: 4 / 5;
+      @include media-breakpoint-up(md) { grid-row: span 2; aspect-ratio: auto; min-height: 100%; }
+    }
+    &:nth-child(2) { aspect-ratio: 4 / 3; }
+    &:nth-child(3) { aspect-ratio: 16 / 9; }
+  }
+}
+
+// Wide feature image with copy below
+.feature {
+  &__media { margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+
+  // Copy first, image below
+  &--media-after &__media {
+    margin-bottom: 0;
+    margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+  &__body { text-align: center; }
+  &__links {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem 2rem;
+    list-style: none;
+    padding: 0;
+  }
+}
+
+// Phones: renders and other large images run the full screen width and are
+// never flatter than 4:3 (wide 21:9 / 16:9 images are cropped to 4:3).
+@include media-breakpoint-down(md) {
+  .media,
+  .collage {
+    width: 100vw;
+    max-width: none;
+    margin-inline: calc(50% - 50vw);
+  }
+  .media--21x9,
+  .media--16x9 { aspect-ratio: 4 / 3; }
+  .media figcaption { padding-inline: 1rem; }
+
+  .collage {
+    gap: .5rem;
+    &__item:nth-child(3) { aspect-ratio: 4 / 3; }
+  }
+}

@@ -1,0 +1,55 @@
+// Motion layer (Crown guide 18, Simple Web motion rules)
+// data-motion = presentation only. Content is visible by default;
+// the hidden start state exists only with html.js and never in
+// Crown Visual Edit mode.
+
+:root {
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-duration-hover: 150ms;
+  --motion-duration-ui: 250ms;
+  --motion-duration-enter: 450ms;
+  --motion-duration-hero: 700ms;
+  --motion-distance: 16px;
+}
+
+[data-motion] {
+  opacity: 1;
+  transform: none;
+}
+
+.js:not([data-crown-render-mode="visual_edit"]) [data-motion]:not([data-motion="stagger"]) {
+  opacity: 0;
+  transition:
+    opacity var(--motion-duration-enter) var(--motion-ease-out),
+    transform var(--motion-duration-enter) var(--motion-ease-out);
+  transition-delay: var(--motion-delay, 0ms);
+
+  &[data-motion="fade-up"] { transform: translate3d(0, var(--motion-distance), 0); }
+  &[data-motion="scale-in"] { transform: scale(0.98); }
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Hero copy uses the longer hero duration
+.js:not([data-crown-render-mode="visual_edit"]) .page-hero [data-motion] {
+  transition-duration: var(--motion-duration-hero);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}

@@ -1,0 +1,256 @@
+// Register interest form (Crown: form) – Panerai-style boxed fields.
+// States: field error, form error, success (form.js).
+
+.pbr-form {
+  .form-label { color: $pbr-marvany; }
+
+  .form-control,
+  .form-select { border-radius: 0; }
+
+  textarea.form-control { min-height: 8rem; }
+
+  .form-text { color: $pbr-muted; font-size: .8125rem; }
+
+  .required-note {
+    font-size: .8125rem;
+    color: $pbr-muted;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-check-input { border-radius: 0; margin-top: .3em; }
+  .form-check-label { font-size: .875rem; color: $pbr-muted; }
+  .form-check-label a { color: $pbr-marvany; }
+
+  .is-invalid { border-color: $danger; }
+
+  .invalid-feedback {
+    display: none;
+    font-size: .8125rem;
+    color: $danger;
+  }
+
+  .is-invalid ~ .invalid-feedback,
+  .form-check-input.is-invalid ~ .invalid-feedback { display: block; }
+
+  &__error,
+  &__success {
+    margin-bottom: 1.5rem;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid;
+    font-size: .9375rem;
+  }
+
+  &__error {
+    border-color: $danger;
+    color: $danger;
+    background: rgba($danger, .04);
+  }
+
+  &__success {
+    border-color: $pbr-accent;
+    color: $pbr-bronz;
+    background: rgba($pbr-accent, .08);
+
+    strong { display: block; font-weight: 500; margin-bottom: .25rem; }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 1.75rem;
+  }
+
+  &.is-sent .pbr-form__fields { display: none; }
+}
+
+// Two equal parts in one form: 01 details, 02 preferences (the client's
+// pre-registration questions, all required). Each part opens with a
+// numbered H2; the questions use selectable tiles.
+.pbr-form__part {
+  & + & {
+    margin-top: clamp(3rem, 2.25rem + 2.5vw, 4.5rem);
+  }
+}
+
+.pbr-form__part-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem; // = .section-heading--tight
+  padding-top: 1.25rem;
+  border-top: 1px solid $pbr-marvany;
+}
+
+.pbr-form__part-no {
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  color: $pbr-bronz;
+}
+
+.pbr-form__part-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 1.3rem + .8vw, 2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+.pbr-form__part-intro {
+  max-width: 34rem;
+  margin: -.5rem 0 2rem;
+  color: $pbr-muted;
+}
+
+.pbr-form__consent { margin-top: 2.5rem; }
+
+.pbr-choice {
+  margin: 0;
+  padding: 1.75rem 0 2rem;
+  border: 0;
+  border-top: 1px solid $pbr-line;
+
+  &:last-child { padding-bottom: 0; }
+
+  // legend as a normal block (float + full width), so the hairline above
+  // the group is not interrupted by the legend
+  &__legend {
+    float: left;
+    display: flex;
+    gap: .9rem;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: $pbr-marvany;
+  }
+
+  &__no {
+    flex: none;
+    min-width: 1.6rem;
+    padding-top: .3em;
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    color: $pbr-bronz;
+  }
+
+  &__legend + * { clear: both; }
+
+  &__hint {
+    margin: -.5rem 0 1rem;
+    font-size: .8125rem;
+    color: $pbr-muted;
+  }
+
+  &__options {
+    display: grid;
+    gap: .625rem;
+    margin-left: 0;
+
+    @include media-breakpoint-up(md) { grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); }
+
+    &--2 {
+      @include media-breakpoint-up(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    &--4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      @include media-breakpoint-up(md) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+  }
+
+  .invalid-feedback { margin: .75rem 0 0; }
+  &.is-invalid { border-top-color: $pbr-line; }
+  &.is-invalid .invalid-feedback { display: block; }
+  &.is-invalid .pbr-option { border-color: rgba($danger, .55); }
+
+  @include media-breakpoint-down(sm) {
+    &__hint,
+    &__options,
+    .invalid-feedback { margin-left: 0; }
+  }
+}
+
+// Tile: the input stays in the accessibility tree (visually hidden, focusable)
+.pbr-option {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  min-height: 3.5rem;
+  padding: .95rem 1.1rem;
+  border: 1px solid $pbr-line;
+  background: transparent;
+  cursor: pointer;
+  font-size: .9375rem;
+  line-height: 1.45;
+  color: $pbr-muted;
+  transition:
+    border-color var(--motion-duration-ui) var(--motion-ease-in-out),
+    background-color var(--motion-duration-ui) var(--motion-ease-in-out),
+    color var(--motion-duration-ui) var(--motion-ease-in-out);
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  &__mark {
+    position: relative;
+    flex: none;
+    width: 1rem;
+    height: 1rem;
+    margin-top: .15em;
+    border: 1px solid $pbr-bazalt;
+    background: transparent;
+    transition: border-color var(--motion-duration-ui) var(--motion-ease-in-out);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      background: $pbr-marvany;
+      opacity: 0;
+      transform: scale(.6);
+      transition:
+        opacity var(--motion-duration-ui) var(--motion-ease-out),
+        transform var(--motion-duration-ui) var(--motion-ease-out);
+    }
+  }
+
+  // radio: round mark
+  &__input[type="radio"] + &__mark,
+  &__input[type="radio"] + &__mark::after { border-radius: 50%; }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover { border-color: $pbr-bazalt; color: $pbr-marvany; }
+  }
+
+  &__input:checked + &__mark { border-color: $pbr-marvany; }
+  &__input:checked + &__mark::after { opacity: 1; transform: none; }
+  &__input:checked ~ &__text { color: $pbr-marvany; }
+  // selected: no fill, a doubled line instead
+  &:has(&__input:checked) { border-color: $pbr-marvany; box-shadow: inset 0 0 0 1px $pbr-marvany; }
+
+  &__input:focus-visible + &__mark { outline: 2px solid $pbr-marvany; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    &, &__mark, &__mark::after { transition: none; }
+  }
+}
+
+// Browser autofill would paint the fields yellow/blue; keep them unfilled
+.pbr-form .form-control:-webkit-autofill,
+.pbr-form .form-control:-webkit-autofill:hover,
+.pbr-form .form-control:-webkit-autofill:focus {
+  -webkit-text-fill-color: $pbr-marvany;
+  transition: background-color 600000s 0s;
+}

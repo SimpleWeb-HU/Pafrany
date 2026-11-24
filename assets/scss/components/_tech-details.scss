@@ -1,0 +1,96 @@
+// Technical details (Panerai pattern): icon strip, accordion, drawing,
+// downloads. Detailed UI/UX to be refined in a later round.
+
+.tech-details {
+  display: grid;
+  gap: 2.5rem;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  &__icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .875rem;
+
+    .icon { width: 28px; height: 28px; stroke-width: 1.1; }
+  }
+
+  &__list {
+    border-bottom: 1px solid $pbr-line;
+  }
+
+  &__item { border-top: 1px solid $pbr-line; }
+
+  &__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+
+    &::-webkit-details-marker { display: none; }
+    &:hover { color: $pbr-accent; }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--motion-duration-ui) var(--motion-ease-in-out);
+    }
+  }
+
+  &__item[open] &__summary .icon { transform: rotate(180deg); }
+
+  &__content {
+    padding: 0 0 1.25rem;
+    font-size: .9375rem;
+
+    dl { margin: 0; }
+    dt { font-weight: 500; display: inline; }
+    dd { display: inline; margin: 0; color: $pbr-muted; }
+    div + div { margin-top: .5rem; }
+  }
+
+  &__visual { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  &__downloads {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .6rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: inherit;
+      font-size: .9375rem;
+      text-decoration: none;
+
+      &:hover { color: $pbr-accent; text-decoration: underline; text-underline-offset: .35em; }
+      .icon { width: 16px; height: 16px; }
+    }
+
+    @include media-breakpoint-down(lg) { align-items: flex-start; }
+  }
+}

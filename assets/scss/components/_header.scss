@@ -1,0 +1,356 @@
+// Site header: Menu (left) · logo (centre) · Enquire (right).
+//
+// One light band. States (classes set by navigation.js):
+//   – overlay, top of page, closed: no band, light logo (over the hero)
+//   – .is-scrolled, closed: band with the bar only, dark logo
+//   – .is-open: band with the bar + nav row, dark logo
+// ≥ md (768px): the header opens on the Menu button AND on scroll;
+//   Close shuts it (it stays shut until the page is back at the top).
+// < md: Menu button only; the nav is a full-height list with contact bar.
+// The band is one layer (::before) revealed with clip-path, so the bar
+// and the nav row arrive together, without layout shift.
+
+$pbr-band-ease: cubic-bezier(.22, 1, .36, 1);
+
+.site-header {
+  --bar-h: #{$pbr-header-height-mobile};
+
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  color: $pbr-marvany;
+  pointer-events: none;
+  transition: color var(--motion-duration-ui) var(--motion-ease-out);
+
+  @include media-breakpoint-up(md) { --bar-h: #{$pbr-header-height}; }
+
+  // The band
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: $pbr-travertin;
+    clip-path: inset(0 0 calc(100% - var(--bar-h)) 0);
+    transition: clip-path var(--motion-duration-hero) $pbr-band-ease;
+  }
+
+  &.is-open::before { clip-path: inset(0); }
+
+  &__bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: var(--bar-h);
+    padding-inline: 1rem;
+    pointer-events: auto;
+
+    @include media-breakpoint-up(md) { padding-inline: 2.5rem; }
+  }
+
+  &__toggle {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: .9375rem;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+
+    .icon { width: 22px; height: 22px; }
+    .icon-close { display: none; }
+
+    &[aria-expanded="true"] {
+      .icon-menu { display: none; }
+      .icon-close { display: block; }
+    }
+
+    &:hover { color: $pbr-accent; }
+  }
+
+  &__toggle-label {
+    @include media-breakpoint-down(sm) { @include visually-hidden; }
+  }
+
+  // Both logos are in the HTML; they cross-fade (opacity only)
+  &__logo {
+    position: relative;
+    display: block;
+    line-height: 0;
+    // Optical centring: the light fern mark sits left of the heavy
+    // wordmark, so the geometric centre reads as shifted right.
+    transform: translateX(-4%);
+
+    img {
+      height: 24px;
+      width: auto;
+      transition: opacity var(--motion-duration-ui) var(--motion-ease-out);
+
+      @include media-breakpoint-up(sm) { height: 34px; }
+      @include media-breakpoint-up(lg) { height: 42px; }
+    }
+
+    .logo-light {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+  }
+
+  &__actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  &__cta {
+    padding: .6rem .75rem;
+    font-size: .625rem;
+    letter-spacing: .1em;
+
+    @include media-breakpoint-up(sm) { padding: .7rem 1.1rem; font-size: .6875rem; letter-spacing: .18em; }
+    @include media-breakpoint-up(lg) { padding: .8rem 1.5rem; }
+  }
+
+  // Overlay variant over the hero: no band, light logo and text.
+  // Only with JS – without it the band stays visible so text never
+  // ends up light-on-light after scrolling.
+  .js &--overlay:not(.is-scrolled):not(.is-open) {
+    color: $pbr-travertin;
+
+    &::before { clip-path: inset(0 0 100% 0); }
+
+    .logo-dark { opacity: 0; }
+    .logo-light { opacity: 1; }
+
+    .site-header__toggle:hover { color: $pbr-arany; }
+
+    .site-header__cta {
+      --bs-btn-color: #{$pbr-travertin};
+      --bs-btn-border-color: #{$pbr-travertin};
+      --bs-btn-bg: transparent;
+      --bs-btn-hover-color: #{$pbr-marvany};
+      --bs-btn-hover-bg: #{$pbr-travertin};
+      --bs-btn-hover-border-color: #{$pbr-travertin};
+    }
+  }
+}
+
+// Navigation
+.site-nav {
+  color: $pbr-marvany;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--motion-duration-hover) var(--motion-ease-out);
+
+    &:hover { color: $pbr-accent; }
+    &[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: .45em;
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    font-size: .8125rem;
+    letter-spacing: .08em;
+
+    a { color: $pbr-muted; text-decoration: none; }
+    a:hover { color: $pbr-accent; }
+    [aria-current="true"] { color: $pbr-marvany; text-decoration: underline; text-underline-offset: .4em; }
+  }
+
+  &__contactbar { display: none; }
+
+  // ≥ md: a low nav row inside the same band, no lines. Links exactly
+  // centred; EN/HU on the right, under the Enquire button. Always in the
+  // layout (no display toggling) so it can animate; hidden and inert
+  // when closed.
+  @include media-breakpoint-up(md) {
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s linear var(--motion-duration-ui);
+
+    .is-open & {
+      visibility: visible;
+      pointer-events: auto;
+      transition: visibility 0s;
+    }
+
+    &__inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: $pbr-nav-row-height;
+      padding: 0 6.75rem .5rem;
+      opacity: 0;
+      transform: translate3d(0, -8px, 0);
+      transition:
+        opacity 150ms var(--motion-ease-out),
+        transform 150ms var(--motion-ease-out);
+    }
+
+    .is-open &__inner {
+      opacity: 1;
+      transform: none;
+      transition:
+        opacity var(--motion-duration-enter) var(--motion-ease-out) 180ms,
+        transform var(--motion-duration-enter) var(--motion-ease-out) 180ms;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .25rem .75rem;
+    }
+
+    &__link { font-size: .8125rem; white-space: nowrap; }
+
+    &__lang {
+      position: absolute;
+      top: 0;
+      right: 2.5rem;
+      height: calc(#{$pbr-nav-row-height} - .5rem);
+      align-items: center;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &__inner { padding-inline: 8rem; }
+    &__list { gap: 0 2rem; }
+    &__link { font-size: .9375rem; }
+  }
+
+  // < md: centred list, language below, contact bar at the bottom.
+  // Reveal: the nav stays in the layout (no display toggling); the header
+  // band (::before, clip-path) opens downwards over the full height, then
+  // the links rise in one after the other (opacity + 16px, 450 ms, 50 ms
+  // apart, at most six steps), the language row and contact bar with the
+  // last step. Closing is quicker: the items fade in 150 ms, the band
+  // closes upwards.
+  @include media-breakpoint-down(md) {
+    height: calc(100svh - #{$pbr-header-height-mobile});
+    overflow-y: auto;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s linear 450ms;
+
+    .is-open & {
+      visibility: visible;
+      pointer-events: auto;
+      transition: visibility 0s;
+    }
+
+    &__list > li,
+    &__lang,
+    &__contactbar {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+      transition:
+        opacity 150ms var(--motion-ease-out),
+        transform 150ms var(--motion-ease-out);
+    }
+
+    @for $i from 1 through 10 {
+      &__list > li:nth-child(#{$i}) { --nav-i: #{min($i - 1, 6)}; }
+    }
+    &__lang,
+    &__contactbar { --nav-i: 6; }
+
+    .is-open & {
+      .site-nav__list > li,
+      .site-nav__lang,
+      .site-nav__contactbar {
+        opacity: 1;
+        transform: none;
+        transition:
+          opacity var(--motion-duration-enter) var(--motion-ease-out),
+          transform var(--motion-duration-enter) var(--motion-ease-out);
+        transition-delay: calc(220ms + var(--nav-i) * 50ms);
+      }
+    }
+
+    &__inner {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.5rem 0;
+      text-align: center;
+    }
+
+    &__link {
+      padding: .6rem 0;
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+
+    &__lang {
+      margin: 1.5rem 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid $pbr-line;
+      font-size: .875rem;
+    }
+
+    &__contactbar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: auto -1.5rem 0;
+      border-top: 1px solid $pbr-line;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        color: $pbr-marvany;
+
+        + a { border-left: 1px solid $pbr-line; }
+        .icon { width: 22px; height: 22px; }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  body.nav-open { overflow: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header::before,
+  .site-header__bar,
+  .site-header__logo img,
+  .site-nav,
+  .site-nav__inner,
+  .site-nav__list > li,
+  .site-nav__lang,
+  .site-nav__contactbar { transition: none !important; }
+}
+
+// Pages without an overlay hero start below the fixed bar
+.page-offset { padding-top: $pbr-header-height-mobile; }
+
+@include media-breakpoint-up(md) {
+  .page-offset { padding-top: $pbr-header-height; }
+}

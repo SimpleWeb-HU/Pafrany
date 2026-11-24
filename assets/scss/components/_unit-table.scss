@@ -1,0 +1,87 @@
+// Available residences table – desktop table, mobile cards
+
+.unit-table {
+  width: 100%;
+  margin: 0;
+  font-size: .9375rem;
+
+  th {
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: $pbr-muted;
+    white-space: nowrap;
+  }
+
+  td, th { vertical-align: middle; }
+
+  .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  &__unit { font-weight: 500; }
+
+  &__status {
+    display: inline-block;
+    padding: .25rem .6rem;
+    border: 1px solid $pbr-accent;
+    color: $pbr-bronz;
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &__row--unavailable {
+    color: $pbr-muted;
+    .unit-table__status { border-color: $pbr-line; color: $pbr-muted; }
+  }
+
+  &__action {
+    text-align: right;
+    .btn { padding: .55rem 1rem; }
+  }
+
+  // Mobile: each row becomes a card
+  @include media-breakpoint-down(lg) {
+    thead { @include visually-hidden; }
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .35rem 1rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid $pbr-line;
+    }
+
+    td {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      border: 0;
+      font-size: .9375rem;
+
+      &::before {
+        content: attr(data-label);
+        font-size: .625rem;
+        font-weight: 500;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: $pbr-muted;
+      }
+    }
+
+    .unit-table__unit,
+    .unit-table__action { grid-column: 1 / -1; }
+    .unit-table__unit::before,
+    .unit-table__action::before { display: none; }
+    .unit-table__unit { font-size: 1.125rem; }
+    .unit-table__action { text-align: left; margin-top: .5rem; }
+  }
+}
+
+.unit-table-note {
+  margin: 1.25rem 0 0;
+  font-size: .8125rem;
+  color: $pbr-muted;
+}

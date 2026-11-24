@@ -1,0 +1,150 @@
+// Page hero – full-bleed image, centred copy (Forestis).
+// .page-hero--home: full viewport; default: ~72% viewport (pillar hero);
+// .page-hero--compact: guide pages.
+// .page-hero--statement: default height, Home-style black layer and
+// one-line title (.page-hero__slogan), e.g. Residences.
+
+.page-hero {
+  position: relative;
+  display: grid;
+  min-height: 72svh;
+  color: $pbr-travertin;
+  background: $pbr-marvany;
+  overflow: hidden;
+
+  &--home { min-height: 100svh; }
+
+  // Home: black layer over the photo – a little deeper at the top
+  // (header) and the bottom (scroll cue)
+  &--home &__media::before {
+    background: linear-gradient(
+      180deg,
+      rgba(#000, .5) 0%,
+      rgba(#000, .38) 22%,
+      rgba(#000, .38) 75%,
+      rgba(#000, .5) 100%
+    );
+  }
+  // Subpages (v0.79): a deeper layer, the title sits on light renders too
+  &--statement &__media::before {
+    background: linear-gradient(
+      180deg,
+      rgba(#000, .62) 0%,
+      rgba(#000, .52) 22%,
+      rgba(#000, .52) 75%,
+      rgba(#000, .62) 100%
+    );
+  }
+  &--compact { min-height: 52svh; }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+
+    picture {
+      display: block;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    // Even scrim for legible light text
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba($pbr-marvany, .32);
+    }
+
+    &[data-ph]::after { z-index: 2; bottom: 5.5rem; }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    max-width: 52rem;
+    padding: calc(#{$pbr-header-height} + 2rem) 1.5rem 6rem;
+    text-align: center;
+  }
+
+  // Home: copy sits a little above the optical centre
+  &--home &__content { padding-bottom: calc(6rem + 12svh); }
+
+  &__eyebrow {
+    color: rgba($pbr-travertin, .85);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(2.4rem, 1.6rem + 3vw, 4rem);
+    font-weight: 300;
+    letter-spacing: .01em;
+    line-height: 1.1;
+    hyphens: manual;   // no automatic word breaks in hero titles (v0.78)
+  }
+
+  // Home: one-line slogan instead of title + lead + link
+  &__slogan {
+    font-size: clamp(1.9rem, 1.35rem + 2vw, 3.1rem);
+    letter-spacing: .02em;
+    line-height: 1.15;
+    max-width: 13em;
+    margin-inline: auto;
+    text-wrap: balance;
+  }
+
+  &__lead {
+    margin: 1.25rem auto 0;
+    max-width: 34rem;
+    font-size: clamp(1.05rem, 1rem + .3vw, 1.25rem);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  &__link {
+    margin-top: 2rem;
+    color: $pbr-travertin;
+    &:hover { color: $pbr-travertin; opacity: .8; }
+  }
+
+  &__scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    z-index: 2;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: $pbr-travertin;
+    font-size: .875rem;
+    letter-spacing: .06em;
+    text-decoration: none;
+
+    .icon { width: 14px; height: 14px; }
+    &:hover { color: $pbr-travertin; opacity: .8; }
+  }
+}
+
+// Images with open sky at the top (e.g. Location): keep the sky in frame
+// when the hero is wider than the image, so the logo sits on a calm area.
+.page-hero__media--sky img { object-position: 50% 0%; }
+
+// "Updated" line on guide pages (yearly refreshed content)
+.page-hero__updated {
+  margin: 1rem 0 0;
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .85;
+}

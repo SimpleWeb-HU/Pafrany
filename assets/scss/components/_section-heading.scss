@@ -1,0 +1,33 @@
+// Section heading (Crown: heading → optional eyebrow + required title)
+
+.section-heading {
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+
+  &__eyebrow { @extend .eyebrow; }
+
+  &__title {
+    margin: 0;
+    font-weight: 300;
+  }
+
+  &--center {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 44rem;
+  }
+
+  &--tight { margin-bottom: 1.5rem; }
+}
+
+// Intro copy under a heading (Crown: text)
+.intro-copy {
+  font-size: clamp(1.1rem, 1.02rem + .3vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+
+  &--center {
+    max-width: $pbr-measure;
+    margin-inline: auto;
+    text-align: center;
+  }
+}

@@ -1,0 +1,55 @@
+// Páfrány Boutique Residences – static frontend
+// Bootstrap 5.3 compiled from source with project overrides.
+
+@import "variables";
+@import "fonts";
+
+// Bootstrap (selected parts)
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";
+
+// Project components
+@import "components/base";
+@import "components/motion";
+@import "components/header";
+@import "components/footer";
+@import "components/hero";
+@import "components/section-heading";
+@import "components/key-facts";
+@import "components/media";
+@import "components/story";
+@import "components/cards";
+@import "components/statement";
+@import "components/cta";
+@import "components/faq";
+@import "components/tech-details";
+@import "components/site-plan";
+@import "components/unit-table";
+@import "components/unit-selector";
+@import "components/plan-zoom";
+@import "components/amenities";
+@import "components/gallery";
+@import "components/gallery-rail";
+@import "components/timeline";
+@import "components/location-map";
+@import "components/article";
+@import "components/news-list";
+@import "components/forms";
+@import "components/contact";
+@import "components/tech-showcase";
+@import "components/type"; // type roles, keep last

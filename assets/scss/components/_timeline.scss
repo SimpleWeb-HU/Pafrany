@@ -1,0 +1,83 @@
+// Timeline (Location: history of the place). Outline circles on a thin
+// line; the last (current) point is filled with the accent. Vertical on
+// phones and tablets, horizontal from lg.
+
+.timeline {
+  --tl-dot: 18px;
+  --tl-gutter: 2.75rem;
+
+  position: relative;
+  list-style: none;
+  margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0 0;
+  padding: 0 0 0 var(--tl-gutter);
+  display: grid;
+  gap: 2.25rem;
+
+  // the line
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--tl-dot) / 2);
+    top: calc(var(--tl-dot) / -2);
+    bottom: calc(var(--tl-dot) / -2);
+    width: 1px;
+    background: $pbr-bazalt;
+  }
+
+  &__item {
+    position: relative;
+
+    // the point
+    &::before {
+      content: "";
+      position: absolute;
+      top: .1rem;
+      left: calc(var(--tl-gutter) * -1);
+      width: var(--tl-dot);
+      height: var(--tl-dot);
+      border: 1px solid $pbr-bazalt;
+      border-radius: 50%;
+      background: $pbr-travertin;
+    }
+
+    &:last-child::before {
+      border-color: $pbr-arany;
+      background: $pbr-arany;
+    }
+  }
+
+  &__year {
+    display: block;
+    color: $pbr-marvany;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__text {
+    max-width: 30rem;
+    margin: .5rem 0 0;
+    color: $pbr-muted;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: calc(var(--tl-dot) + 1.5rem) 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 2rem;
+
+    &::before {
+      left: 0;
+      right: 0;
+      top: calc(var(--tl-dot) / 2);
+      bottom: auto;
+      width: auto;
+      height: 1px;
+    }
+
+    &__item::before {
+      top: calc((var(--tl-dot) + 1.5rem) * -1);
+      left: 0;
+    }
+  }
+}
+
+.section--band .timeline__item::before { background: $pbr-travertin-deep; }
+.section--band .timeline__item:last-child::before { background: $pbr-arany; }

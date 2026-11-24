@@ -1,0 +1,102 @@
+// Amenities (Residences, "What every residence includes"): heading and
+// intro with the specification download, then the client's icons in
+// bordered cards with a round icon frame, as on the current apafrany.hu
+// ("Prémium minőség"), in the new site's colours. Crown: icon_list.
+
+.amenities {
+  &__head {
+    max-width: 44rem;
+    margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3.5rem);
+    text-align: center;
+
+    .section-heading { margin-bottom: 1.5rem; } // = .section-heading--tight
+  }
+
+  &__intro {
+    margin: 0 auto 1.75rem;
+    color: $pbr-muted;
+  }
+
+  &__downloads {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .link-more span { color: $pbr-muted; }
+    .icon { width: 16px; height: 16px; }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(md) { gap: 1rem; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    @include media-breakpoint-up(lg) { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 1.75rem;
+    border: 1px solid $pbr-line;
+    background: rgba($pbr-paper, .6);
+    text-align: center;
+    transition:
+      border-color var(--motion-duration-ui) var(--motion-ease-out),
+      background-color var(--motion-duration-ui) var(--motion-ease-out);
+
+    @include media-breakpoint-up(md) { padding: 2.25rem 1.5rem 2rem; }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover { border-color: $pbr-accent; background: $pbr-paper; }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 1.25rem;
+    border: 1px solid $pbr-line;
+    border-radius: 50%;
+    color: $pbr-accent;
+
+    @include media-breakpoint-up(md) { width: 104px; height: 104px; }
+
+    svg {
+      display: block;
+      width: 44%;
+      height: 44%;
+      fill: currentColor;
+    }
+  }
+
+  &__title {
+    margin: 0 0 .4rem;
+    font-family: $font-family-base;
+    font-size: .75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $pbr-marvany;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: $pbr-muted;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__item { transition: none; }
+  }
+}

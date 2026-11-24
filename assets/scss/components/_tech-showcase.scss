@@ -1,0 +1,224 @@
+// Interactive showcase (tech-showcase.js), used on Technology, Gaggenau and
+// Robotics. Three (or, with --4, four) items side by side on desktop: the active one shows the filled image, the others their
+// line drawing; one shared text box below. On phones and tablets the items
+// form a looping carousel (see the block below lg); without JS they stand
+// under each other with their filled image and their own text.
+// Without JS every item shows its own text and the drawings stay visible.
+
+.tech-showcase {
+  --ts-paper: #{$pbr-travertin-deep};
+  --ts-fade: 600ms;
+  html:not(.js) & { overflow-x: clip; } // stacked fallback: the window drawing (1.1) may reach past a phone's edge
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 75%;
+    gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__trigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $pbr-marvany;
+    cursor: pointer;
+
+    &:focus-visible { outline: 2px solid $pbr-accent; outline-offset: 6px; }
+  }
+
+  &__stage {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  &__line,
+  &__fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity var(--ts-fade) var(--motion-ease-in-out);
+  }
+
+  &__line { color: $pbr-bazalt; opacity: 1; }
+
+  // four items: same item size, the row takes the full content width
+  &--4 &__list { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 100%; }
+  &--4 &__rail { max-width: 100%; }
+
+  // display size of each drawing within its square (thermostat smaller, the
+  // narrow window larger, Gaggenau appliances in proportion to each other).
+  // Keep in sync with SIZE in port/techshow.py, which scales the stroke widths
+  // so every drawing renders with the wall section's line weight.
+  @each $k, $size in (th: .7, wi: 1.1, ov: .735, hb: .96, fr: 1.06, dw: .88) {
+    &__item--#{$k} &__line,
+    &__item--#{$k} &__fill {
+      inset: (1 - $size) * 50%;
+      width: $size * 100%;
+      height: $size * 100%;
+    }
+  }
+
+  // rail under the items: a hairline with a marker that moves to the active
+  // item (absolutely positioned, left/width animate), linking it to the text
+  &__rail {
+    position: relative;
+    display: none;
+    max-width: 75%;
+    height: 1px;
+    margin: clamp(1.5rem, 1rem + 1vw, 2rem) auto 0;
+    background: $pbr-line;
+  }
+  .js &__rail { display: block; }
+
+  &__marker {
+    position: absolute;
+    top: -1px;
+    left: var(--ts-x, 0);
+    width: var(--ts-w, 33.333%);
+    height: 3px;
+    background: $pbr-marvany;
+    transition:
+      left 450ms var(--motion-ease-in-out),
+      width 450ms var(--motion-ease-in-out);
+  }
+  &__fill { opacity: 0; }
+
+  &__label {
+    margin-top: 1.25rem;
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: $pbr-muted;
+    transition: color var(--motion-duration-ui) var(--motion-ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__item:not(.is-active) &__trigger:hover &__line { color: $pbr-marvany; }
+    &__item:not(.is-active) &__trigger:hover &__label { color: $pbr-marvany; }
+  }
+
+  // JS on: the active item shows the fill, its drawing fades out
+  .js & {
+    .tech-showcase__item.is-active .tech-showcase__fill { opacity: 1; }
+    .tech-showcase__item.is-active .tech-showcase__line { opacity: 0; }
+    .tech-showcase__item.is-active .tech-showcase__label { color: $pbr-marvany; }
+    .tech-showcase__data { display: none; }
+  }
+
+  // without JS: drawings + all texts under the items, no shared box
+  &__data { margin-top: 1rem; text-align: center; }
+  &__data-title { font-size: 1.125rem; font-weight: 400; margin: 0 0 .5rem; }
+  &__data-text { margin: 0; font-size: .9375rem; color: $pbr-muted; }
+  &__panel { display: none; }
+  .js &__panel { display: block; }
+
+  &__panel {
+    max-width: 40rem;
+    min-height: 10.5rem;
+    margin: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem) auto 0;
+    text-align: center;
+    transition: opacity 220ms var(--motion-ease-out);
+
+    &.is-changing { opacity: 0; }
+  }
+
+  &__title {
+    margin: 0 0 .75rem;
+    font-size: 1.375rem;
+    font-weight: 300;
+    line-height: 1.25;
+  }
+
+  &__text {
+    margin: 0;
+    color: $pbr-muted;
+  }
+
+  &__downloads {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    .link-more span { color: $pbr-muted; }
+    .icon { width: 16px; height: 16px; }
+  }
+
+  // Phones and tablets (below lg), JS on: the site's one carousel, dragged
+  // in real time. The list runs the full screen width. tech-showcase.js sets
+  // on every item --d (offset from the middle, in items), --s (scale: 1 in
+  // the middle, .74 at the side places) and --o (fades out past the sides),
+  // every frame while dragging and gliding, so no CSS transition runs on the
+  // position. Only the fill and the text fade (--ts-fade, 220 ms) once the
+  // row stops on an item. The rail shows one segment per item.
+  // Without JS the items stand under each other with their own texts.
+  @include media-breakpoint-down(lg) {
+    --ts-slide: min(56vw, 19rem);
+    --ts-fade: 320ms; // fill and text fade in together as the row arrives
+
+    &__trigger { cursor: default; }
+
+    html:not(.js) & {
+      .tech-showcase__list { grid-template-columns: 1fr; max-width: 22rem; gap: 3rem; }
+      .tech-showcase__fill { opacity: 1; }
+      .tech-showcase__line { opacity: 0; }
+      .tech-showcase__label { color: $pbr-marvany; }
+    }
+
+    .js & {
+      .tech-showcase__list {
+        position: relative;
+        display: block;
+        width: 100vw;
+        max-width: none;
+        height: calc(var(--ts-slide) + 3.25rem);
+        margin-inline: calc(50% - 50vw);
+        overflow: hidden;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      .tech-showcase__item {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: var(--ts-slide);
+        transform: translateX(calc(-50% + var(--d, 0) * 88%)) scale(var(--s, 1));
+        transform-origin: 50% 40%;
+        opacity: var(--o, 1);
+        will-change: transform;
+      }
+      .tech-showcase__item img,
+      .tech-showcase__item svg { pointer-events: none; -webkit-user-drag: none; }
+
+      .tech-showcase__item:not(.is-active) .tech-showcase__trigger { cursor: pointer; }
+      .tech-showcase__item:not(.is-active) .tech-showcase__label { opacity: 0; }
+      .tech-showcase__label { transition: color var(--motion-duration-ui) var(--motion-ease-out), opacity 300ms var(--motion-ease-out); }
+
+      .tech-showcase__rail { max-width: 12rem; }
+      .tech-showcase__panel { min-height: 10.5rem; padding-inline: .25rem; transition-duration: var(--ts-fade); }
+      .tech-showcase__list { cursor: grab; }
+      &.is-dragging .tech-showcase__list { cursor: grabbing; }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    --ts-fade: 0ms;
+    &__panel,
+    &__marker { transition: none; }
+  }
+}

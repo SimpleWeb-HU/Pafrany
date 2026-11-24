@@ -1,0 +1,104 @@
+// Location map (Location page): content-wide map visual in the brand
+// palette (travertin ground, paper roads, green woods and parks, Örökzöld
+// marker with a label). For now a static image rendered from OpenStreetMap
+// vector data in the style the live Google map will get later
+// (location-map.js holds the Google style for that step).
+
+.location-map {
+  &__lead {
+    max-width: 44rem;
+    margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem);
+    color: $pbr-muted;
+  }
+
+  &__canvas {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: $pbr-travertin-deep;
+    border: 1px solid $pbr-line;
+
+    margin: 0;
+
+    @include media-breakpoint-up(md) { aspect-ratio: 16 / 9; }
+    @include media-breakpoint-up(xl) { aspect-ratio: 21 / 9; }
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__credit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: .2rem .5rem;
+    background: rgba($pbr-travertin, .85);
+    font-size: .6875rem;
+    color: $pbr-muted;
+  }
+
+  &__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem 2rem;
+    margin-top: 1.25rem;
+  }
+
+  &__address {
+    margin: 0;
+    font-style: normal;
+    color: $pbr-muted;
+  }
+
+  &__foot .link-more { margin-left: auto; }
+  &__foot .link-more + .link-more { margin-left: 0; }
+
+  @include media-breakpoint-down(md) {
+    &__foot { flex-direction: column; align-items: flex-start; }
+    &__foot .link-more { margin-left: 0; }
+  }
+}
+
+// Route cards on the guide page
+.route-cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  @include media-breakpoint-up(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.route-card {
+  padding: 1.75rem;
+  border: 1px solid $pbr-line;
+  background: $pbr-paper;
+
+  &__title { margin: 0 0 .5rem; font-size: 1.3rem; font-weight: 400; }
+  &__meta { margin: 0 0 1rem; font-size: .875rem; color: $pbr-bronz; font-weight: 500; letter-spacing: .04em; }
+  &__text { margin: 0; color: $pbr-muted; font-size: .9375rem; }
+}
+
+.route-cards {
+  @include media-breakpoint-up(lg) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+// Guide pages: distances / quick route data under the map
+.guide-distances {
+  display: grid;
+  gap: 0 2rem;
+  margin: 1.5rem 0 0;
+
+  @include media-breakpoint-up(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @include media-breakpoint-up(lg) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  div { padding: .9rem 0; border-top: 1px solid $pbr-line; }
+  dt { margin-bottom: .2rem; font-size: .6875rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: $pbr-bronz; }
+  dd { margin: 0; font-size: .9375rem; }
+}

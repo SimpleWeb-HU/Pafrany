@@ -1,0 +1,23 @@
+// Story block – alternating image / text (project component)
+
+.story {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+
+  + .story { margin-top: clamp(4rem, 3rem + 4vw, 7rem); }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 7fr 5fr;
+    gap: 5rem;
+
+    &--reverse {
+      grid-template-columns: 5fr 7fr;
+      .story__media { order: 2; }
+    }
+  }
+
+  &__body { max-width: 30rem; }
+  &__title { margin-bottom: 1.25rem; }
+  &__text { color: $pbr-marvany; }
+}
